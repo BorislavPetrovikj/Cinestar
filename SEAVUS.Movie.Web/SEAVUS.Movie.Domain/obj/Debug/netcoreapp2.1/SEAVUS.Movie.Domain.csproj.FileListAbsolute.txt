@@ -1,0 +1,9 @@
+C:\Users\Angela.Kostadinova\source\repos\SEAVUS.Movie.Web\SEAVUS.Movie.Domain\bin\Debug\netcoreapp2.1\SEAVUS.Movie.Domain.deps.json
+C:\Users\Angela.Kostadinova\source\repos\SEAVUS.Movie.Web\SEAVUS.Movie.Domain\bin\Debug\netcoreapp2.1\SEAVUS.Movie.Domain.dll
+C:\Users\Angela.Kostadinova\source\repos\SEAVUS.Movie.Web\SEAVUS.Movie.Domain\bin\Debug\netcoreapp2.1\SEAVUS.Movie.Domain.pdb
+C:\Users\Angela.Kostadinova\source\repos\SEAVUS.Movie.Web\SEAVUS.Movie.Domain\obj\Debug\netcoreapp2.1\SEAVUS.Movie.Domain.AssemblyInfoInputs.cache
+C:\Users\Angela.Kostadinova\source\repos\SEAVUS.Movie.Web\SEAVUS.Movie.Domain\obj\Debug\netcoreapp2.1\SEAVUS.Movie.Domain.AssemblyInfo.cs
+C:\Users\Angela.Kostadinova\source\repos\SEAVUS.Movie.Web\SEAVUS.Movie.Domain\obj\Debug\netcoreapp2.1\SEAVUS.Movie.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Angela.Kostadinova\source\repos\SEAVUS.Movie.Web\SEAVUS.Movie.Domain\obj\Debug\netcoreapp2.1\SEAVUS.Movie.Domain.dll
+C:\Users\Angela.Kostadinova\source\repos\SEAVUS.Movie.Web\SEAVUS.Movie.Domain\obj\Debug\netcoreapp2.1\SEAVUS.Movie.Domain.pdb
+C:\Users\Angela.Kostadinova\source\repos\SEAVUS.Movie.Web\SEAVUS.Movie.Domain\obj\Debug\netcoreapp2.1\SEAVUS.Movie.Domain.csprojAssemblyReference.cache

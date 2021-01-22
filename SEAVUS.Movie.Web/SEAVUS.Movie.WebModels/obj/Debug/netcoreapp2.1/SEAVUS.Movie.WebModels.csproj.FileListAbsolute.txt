@@ -1,8 +1,0 @@
-C:\Users\Angela.Kostadinova\source\repos\SEAVUS.Movie.Web\SEAVUS.Movie.WebModels\bin\Debug\netcoreapp2.1\SEAVUS.Movie.WebModels.deps.json
-C:\Users\Angela.Kostadinova\source\repos\SEAVUS.Movie.Web\SEAVUS.Movie.WebModels\bin\Debug\netcoreapp2.1\SEAVUS.Movie.WebModels.dll
-C:\Users\Angela.Kostadinova\source\repos\SEAVUS.Movie.Web\SEAVUS.Movie.WebModels\bin\Debug\netcoreapp2.1\SEAVUS.Movie.WebModels.pdb
-C:\Users\Angela.Kostadinova\source\repos\SEAVUS.Movie.Web\SEAVUS.Movie.WebModels\obj\Debug\netcoreapp2.1\SEAVUS.Movie.WebModels.AssemblyInfoInputs.cache
-C:\Users\Angela.Kostadinova\source\repos\SEAVUS.Movie.Web\SEAVUS.Movie.WebModels\obj\Debug\netcoreapp2.1\SEAVUS.Movie.WebModels.AssemblyInfo.cs
-C:\Users\Angela.Kostadinova\source\repos\SEAVUS.Movie.Web\SEAVUS.Movie.WebModels\obj\Debug\netcoreapp2.1\SEAVUS.Movie.WebModels.csproj.CoreCompileInputs.cache
-C:\Users\Angela.Kostadinova\source\repos\SEAVUS.Movie.Web\SEAVUS.Movie.WebModels\obj\Debug\netcoreapp2.1\SEAVUS.Movie.WebModels.dll
-C:\Users\Angela.Kostadinova\source\repos\SEAVUS.Movie.Web\SEAVUS.Movie.WebModels\obj\Debug\netcoreapp2.1\SEAVUS.Movie.WebModels.pdb

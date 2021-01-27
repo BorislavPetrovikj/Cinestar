@@ -10,6 +10,6 @@ namespace SEAVUS.Movie.Services.Interfaces
         IEnumerable<MovieViewModel> GetAllMovies();
         MovieViewModel GetMovieById(int id);
 
-        //List<MovieViewModel> SearchMovies(string searchTerm);
+        List<MovieViewModel> SearchMovies(string searchTerm);
     }
 }

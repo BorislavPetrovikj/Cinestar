@@ -27,6 +27,8 @@ namespace SEAVUS.Movie.Services.Services
                                   Id = m.Id,
                                   MovieTitle = m.Title,
                                   Description = m.Description,
+                                  Director = m.Director,
+                                  ReleaseDate = m.ReleaseDate,
                                   Image = m.Image,
                                   Genre = m.Genre
                               }).ToList();
@@ -70,19 +72,19 @@ namespace SEAVUS.Movie.Services.Services
             }
         }
 
-        //public List<MovieViewModel> SearchMovies(string searchTerm)
-        //{
-        //    List<MovieViewModel> movies = GetAllMovies().ToList();
-        //    if (string.IsNullOrEmpty(searchTerm))
-        //    {
-        //        return movies;
-        //    }
+        public List<MovieViewModel> SearchMovies(string searchTerm)
+        {
+            List<MovieViewModel> movies = GetAllMovies().ToList();
+            if (string.IsNullOrEmpty(searchTerm))
+            {
+                return movies;
+            }
 
-        //    return movies.Where(m => m.MovieTitle.Contains(searchTerm) ||
-        //                        m.Genre.Contains(searchTerm) ||
-        //                        m.Director.Contains(searchTerm) ||
-        //                        m.ReleaseDate.Date.ToString().Contains(searchTerm) ||
-        //                        m.Director.Contains(searchTerm)).ToList();
-        //}
+            return movies.Where(m => m.MovieTitle.Contains(searchTerm) ||
+                                m.Genre.Contains(searchTerm) ||
+                                m.Director.Contains(searchTerm) ||
+                                m.ReleaseDate.Date.ToString().Contains(searchTerm) ||
+                                m.Director.Contains(searchTerm)).ToList();
+        }
     }
 }

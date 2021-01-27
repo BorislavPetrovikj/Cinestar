@@ -16,9 +16,13 @@ namespace SEAVUS.Movie.Web.Controllers
         {
             _movieService = movieService;
         }
-        public IActionResult Movies()
+        public IActionResult Movies(string searchTerm)
         {
-            List<MovieViewModel> movies = _movieService.GetAllMovies().ToList();
+            
+
+            ViewData["Search"] = searchTerm;
+
+            List<MovieViewModel> movies = _movieService.SearchMovies(searchTerm).ToList();
 
             return View(movies);
         }

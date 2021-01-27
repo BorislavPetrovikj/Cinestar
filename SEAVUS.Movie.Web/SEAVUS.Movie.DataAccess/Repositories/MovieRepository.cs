@@ -1,4 +1,6 @@
-﻿using SEAVUS.Movie.DataAccess.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using SEAVUS.Movie.DataAccess.Interfaces;
+using SEAVUS.Movie.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,14 +25,23 @@ namespace SEAVUS.Movie.DataAccess.Repositories
         public IEnumerable<Domain.Models.Movie> GetAll()
         {
             // add include statemants
-            IEnumerable<Domain.Models.Movie> movies = _db.Movies;
+            IEnumerable<Domain.Models.Movie> movies = _db.Movies
+                                                      .Include(x => x.MovieCast)
+                                                      .ThenInclude(x => x.Actor)
+                                                      .Include(x => x.Shows)
+                                                      .ThenInclude(x => x.Movie);
             return movies;
         }
 
         public Domain.Models.Movie GetById(int id)
         {
             // add include statemants
-            Domain.Models.Movie movie = _db.Movies.SingleOrDefault(x => x.Id == id);
+            Domain.Models.Movie movie = _db.Movies
+                                        .Include(x=>x.MovieCast)
+                                        .ThenInclude(x=>x.Actor)
+                                        .SingleOrDefault(x => x.Id == id);
+
+
             return movie;
         }
 

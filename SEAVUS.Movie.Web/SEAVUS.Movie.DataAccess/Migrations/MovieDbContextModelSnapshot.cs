@@ -40,8 +40,8 @@ namespace SEAVUS.Movie.DataAccess.Migrations
                     b.ToTable("AspNetRoles");
 
                     b.HasData(
-                        new { Id = "e1765d7d-b58b-43db-a6f3-ed389a68e7c8", ConcurrencyStamp = "1f44ab23-55f2-4e23-bdd6-fbe252bcc556", Name = "admin", NormalizedName = "Administrator" },
-                        new { Id = "18892196-fd1d-4d06-9437-9cb4da749db6", ConcurrencyStamp = "a8f1de57-354c-4d5f-9e08-180e7151cf64", Name = "user", NormalizedName = "User" }
+                        new { Id = "56bf0afd-fc6d-4f7c-a3f5-038b2ee2214a", ConcurrencyStamp = "52df6d35-22a3-4ddb-a090-e5bba4cd92e4", Name = "admin", NormalizedName = "Administrator" },
+                        new { Id = "91bf999f-d2f6-4424-a208-44f4ad9e8893", ConcurrencyStamp = "63fd7e8b-4dcc-40d0-8df9-a28cd88e9cf4", Name = "user", NormalizedName = "User" }
                     );
                 });
 
@@ -114,7 +114,7 @@ namespace SEAVUS.Movie.DataAccess.Migrations
                     b.ToTable("AspNetUserRoles");
 
                     b.HasData(
-                        new { UserId = "860f164f-6fd8-460f-9c17-396b1f4caee5", RoleId = "e1765d7d-b58b-43db-a6f3-ed389a68e7c8" }
+                        new { UserId = "a1a1cd9f-c076-43d3-91ee-8b1f01c21b0f", RoleId = "56bf0afd-fc6d-4f7c-a3f5-038b2ee2214a" }
                     );
                 });
 
@@ -154,7 +154,13 @@ namespace SEAVUS.Movie.DataAccess.Migrations
                         new { Id = 3, Age = 26, FirstName = "Julia", LastName = "Garner" },
                         new { Id = 4, Age = 42, FirstName = "Andy", LastName = "Samberg" },
                         new { Id = 5, Age = 35, FirstName = "Cristin", LastName = "Milioti" },
-                        new { Id = 6, Age = 60, FirstName = "Hatidze", LastName = "Muratova" }
+                        new { Id = 6, Age = 60, FirstName = "Hatidze", LastName = "Muratova" },
+                        new { Id = 7, Age = 53, FirstName = "Song", LastName = "Kang-ho" },
+                        new { Id = 8, Age = 59, FirstName = "George", LastName = "Clooney" },
+                        new { Id = 9, Age = 40, FirstName = "Chris", LastName = "Pine" },
+                        new { Id = 10, Age = 40, FirstName = "Margot", LastName = "Robbie" },
+                        new { Id = 11, Age = 34, FirstName = "Christopher", LastName = "Abbott" },
+                        new { Id = 12, Age = 33, FirstName = "Liu", LastName = "Yifei" }
                     );
                 });
 
@@ -174,6 +180,21 @@ namespace SEAVUS.Movie.DataAccess.Migrations
                     b.HasIndex("MovieId");
 
                     b.ToTable("Cast");
+
+                    b.HasData(
+                        new { Id = 1, ActorId = 2, MovieId = 1 },
+                        new { Id = 2, ActorId = 4, MovieId = 2 },
+                        new { Id = 3, ActorId = 1, MovieId = 3 },
+                        new { Id = 4, ActorId = 6, MovieId = 4 },
+                        new { Id = 5, ActorId = 7, MovieId = 5 },
+                        new { Id = 6, ActorId = 8, MovieId = 6 },
+                        new { Id = 7, ActorId = 9, MovieId = 7 },
+                        new { Id = 8, ActorId = 10, MovieId = 8 },
+                        new { Id = 9, ActorId = 11, MovieId = 9 },
+                        new { Id = 10, ActorId = 12, MovieId = 10 },
+                        new { Id = 11, ActorId = 3, MovieId = 3 },
+                        new { Id = 12, ActorId = 5, MovieId = 2 }
+                    );
                 });
 
             modelBuilder.Entity("SEAVUS.Movie.Domain.Models.Hall", b =>
@@ -188,6 +209,10 @@ namespace SEAVUS.Movie.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Halls");
+
+                    b.HasData(
+                        new { Id = 1, Name = "Hall 01", Type = "Standard" }
+                    );
                 });
 
             modelBuilder.Entity("SEAVUS.Movie.Domain.Models.Movie", b =>
@@ -218,16 +243,16 @@ namespace SEAVUS.Movie.DataAccess.Migrations
                     b.ToTable("Movies");
 
                     b.HasData(
-                        new { Id = 1, Director = "Christopher Nolan", Genre = "Action/Sci-fi", Language = "English", ReleaseDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Technology = "2D", Title = "Tenet" },
-                        new { Id = 2, Director = "Max Barbakow", Genre = "Romantic comedy", Language = "English", ReleaseDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Technology = "2D", Title = "Palm Springs" },
-                        new { Id = 3, Director = "Kitty Green", Genre = "Drama", Language = "English", ReleaseDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Technology = "2D", Title = "The Assistant" },
-                        new { Id = 4, Director = "Tamara Kotevska", Genre = "Documentary", Language = "Macedonian", ReleaseDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Technology = "2D", Title = "Honeyland" },
-                        new { Id = 5, Director = "Bong Joon-ho", Genre = "Dark comedy", Language = "Korean", ReleaseDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Technology = "2D", Title = "Parasite" },
-                        new { Id = 6, Director = "George Clooney", Genre = "Action/Sci-fi", Language = "English", ReleaseDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Technology = "2D", Title = "The midnight sky" },
-                        new { Id = 7, Director = "Patty Jenkins", Genre = "Action/Sci-fi", Language = "English", ReleaseDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Technology = "2D", Title = "Wonder Woman" },
-                        new { Id = 8, Director = "Cathy Yan", Genre = "Action", Language = "English", ReleaseDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Technology = "2D", Title = "Birds of Prey" },
-                        new { Id = 9, Director = "Brandon Cronenberg", Genre = "Sci-fi/Horror", Language = "English", ReleaseDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Technology = "2D", Title = "Possessor" },
-                        new { Id = 10, Director = "Niki Caro", Genre = "Action", Language = "English", ReleaseDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), Technology = "2D", Title = "Mulan" }
+                        new { Id = 1, Description = "She is a angel princess from the angel world. She grew up loved by her parents and doesn't really know how to be evil or any of the common actions,   She is unable to cry due to Keita's accidental first wish, despite needed for him to wish.", Director = "Christopher Nolan", Genre = "Action/Sci-fi", Language = "English", ReleaseDate = new DateTime(2020, 8, 26, 0, 0, 0, 0, DateTimeKind.Unspecified), Technology = "2D", Title = "Tenet" },
+                        new { Id = 2, Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", Director = "Max Barbakow", Genre = "Romantic comedy", Language = "English", ReleaseDate = new DateTime(2020, 1, 26, 0, 0, 0, 0, DateTimeKind.Unspecified), Technology = "2D", Title = "Palm Springs" },
+                        new { Id = 3, Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", Director = "Kitty Green", Genre = "Drama", Language = "English", ReleaseDate = new DateTime(2019, 8, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), Technology = "2D", Title = "The Assistant" },
+                        new { Id = 4, Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", Director = "Tamara Kotevska", Genre = "Documentary", Language = "Macedonian", ReleaseDate = new DateTime(2019, 1, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), Technology = "2D", Title = "Honeyland" },
+                        new { Id = 5, Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", Director = "Bong Joon-ho", Genre = "Dark comedy", Language = "Korean", ReleaseDate = new DateTime(2019, 5, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), Technology = "2D", Title = "Parasite" },
+                        new { Id = 6, Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", Director = "George Clooney", Genre = "Action/Sci-fi", Language = "English", ReleaseDate = new DateTime(2020, 12, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), Technology = "2D", Title = "The midnight sky" },
+                        new { Id = 7, Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", Director = "Patty Jenkins", Genre = "Action/Sci-fi", Language = "English", ReleaseDate = new DateTime(2020, 12, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), Technology = "2D", Title = "Wonder Woman" },
+                        new { Id = 8, Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", Director = "Cathy Yan", Genre = "Action", Language = "English", ReleaseDate = new DateTime(2020, 1, 26, 0, 0, 0, 0, DateTimeKind.Unspecified), Technology = "2D", Title = "Birds of Prey" },
+                        new { Id = 9, Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", Director = "Brandon Cronenberg", Genre = "Sci-fi/Horror", Language = "English", ReleaseDate = new DateTime(2020, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), Technology = "2D", Title = "Possessor" },
+                        new { Id = 10, Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", Director = "Niki Caro", Genre = "Action", Language = "English", ReleaseDate = new DateTime(2020, 9, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), Technology = "2D", Title = "Mulan" }
                     );
                 });
 
@@ -279,6 +304,19 @@ namespace SEAVUS.Movie.DataAccess.Migrations
                     b.HasIndex("HallId");
 
                     b.ToTable("Seats");
+
+                    b.HasData(
+                        new { Id = 1, Available = (sbyte)1, HallId = 1, Price = 9.00m, RowNumber = 1, SeatNumber = 1, Type = "Standard" },
+                        new { Id = 2, Available = (sbyte)1, HallId = 1, Price = 9.00m, RowNumber = 1, SeatNumber = 2, Type = "Standard" },
+                        new { Id = 3, Available = (sbyte)1, HallId = 1, Price = 9.00m, RowNumber = 1, SeatNumber = 3, Type = "Standard" },
+                        new { Id = 4, Available = (sbyte)1, HallId = 1, Price = 9.00m, RowNumber = 1, SeatNumber = 4, Type = "Standard" },
+                        new { Id = 5, Available = (sbyte)1, HallId = 1, Price = 9.00m, RowNumber = 1, SeatNumber = 5, Type = "Standard" },
+                        new { Id = 6, Available = (sbyte)1, HallId = 1, Price = 9.00m, RowNumber = 1, SeatNumber = 6, Type = "Standard" },
+                        new { Id = 7, Available = (sbyte)1, HallId = 1, Price = 9.00m, RowNumber = 1, SeatNumber = 7, Type = "Standard" },
+                        new { Id = 8, Available = (sbyte)1, HallId = 1, Price = 9.00m, RowNumber = 1, SeatNumber = 8, Type = "Standard" },
+                        new { Id = 9, Available = (sbyte)1, HallId = 1, Price = 9.00m, RowNumber = 1, SeatNumber = 9, Type = "Standard" },
+                        new { Id = 10, Available = (sbyte)1, HallId = 1, Price = 9.00m, RowNumber = 1, SeatNumber = 10, Type = "Standard" }
+                    );
                 });
 
             modelBuilder.Entity("SEAVUS.Movie.Domain.Models.Show", b =>
@@ -303,6 +341,11 @@ namespace SEAVUS.Movie.DataAccess.Migrations
                     b.HasIndex("MovieId");
 
                     b.ToTable("Shows");
+
+                    b.HasData(
+                        new { Id = 1, EndDate = new DateTime(2020, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), HallId = 1, MovieId = 1, ShowTime = new DateTime(2021, 1, 27, 17, 1, 41, 675, DateTimeKind.Local), StartDate = new DateTime(2020, 9, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                        new { Id = 2, EndDate = new DateTime(2020, 3, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), HallId = 1, MovieId = 2, ShowTime = new DateTime(2021, 1, 29, 17, 1, 41, 676, DateTimeKind.Local), StartDate = new DateTime(2020, 2, 10, 0, 0, 0, 0, DateTimeKind.Unspecified) }
+                    );
                 });
 
             modelBuilder.Entity("SEAVUS.Movie.Domain.Models.Ticket", b =>
@@ -385,7 +428,7 @@ namespace SEAVUS.Movie.DataAccess.Migrations
                     b.ToTable("AspNetUsers");
 
                     b.HasData(
-                        new { Id = "860f164f-6fd8-460f-9c17-396b1f4caee5", AccessFailedCount = 0, ConcurrencyStamp = "4ef8f97f-fa56-4dbc-b56e-51c210cc6f46", Email = "angelaadmin@gmail.com", EmailConfirmed = true, LockoutEnabled = false, NormalizedEmail = "angelaadmin@gmail.com", NormalizedUserName = "ADMIN", PasswordHash = "AQAAAAEAACcQAAAAEFHoepSD0RvfpS6PAnQde5jI/qS/ZubwaKF04txPneIAjNoBx0SWcIyAlcdRXnYzXg==", PhoneNumberConfirmed = false, SecurityStamp = "", TwoFactorEnabled = false, UserName = "AngelaAdmin" }
+                        new { Id = "a1a1cd9f-c076-43d3-91ee-8b1f01c21b0f", AccessFailedCount = 0, ConcurrencyStamp = "c050a91a-d6f3-4b27-9812-d8c24d5a388e", Email = "angelaadmin@gmail.com", EmailConfirmed = true, LockoutEnabled = false, NormalizedEmail = "angelaadmin@gmail.com", NormalizedUserName = "ADMIN", PasswordHash = "AQAAAAEAACcQAAAAEIEl71KMCh9nIy8G9OIXf6HgnPX0Q24l7WUVgWvFnAgxJZ2ZWdt2bdw05S35LhT54A==", PhoneNumberConfirmed = false, SecurityStamp = "", TwoFactorEnabled = false, UserName = "AngelaAdmin" }
                     );
                 });
 

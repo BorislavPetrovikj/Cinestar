@@ -4719,6 +4719,9 @@
       "SEAVUS.Movie.WebModels/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.Core": "2.1.1"
+        },
         "compile": {
           "bin/placeholder/SEAVUS.Movie.WebModels.dll": {}
         },

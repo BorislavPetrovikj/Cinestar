@@ -50,12 +50,12 @@ namespace SEAVUS.Movie.DataAccess
                             Name = "admin",
                             NormalizedName = "Administrator"
                         },
-                        new IdentityRole 
-                        { 
+                        new IdentityRole
+                        {
                             Id = userRoleId,
                             Name = "user",
                             NormalizedName = "User"
-                        
+
                         });
 
             modelBuilder.Entity<IdentityUserRole<string>>()
@@ -68,16 +68,16 @@ namespace SEAVUS.Movie.DataAccess
 
             modelBuilder.Entity<Domain.Models.Movie>()
                 .HasData(
-                new Domain.Models.Movie() { Id = 1, Title = "Tenet", Director = "Christopher Nolan", ReleaseDate = new DateTime(2020-08-26), Genre = "Action/Sci-fi", Technology = "2D", Language="English" },
-                new Domain.Models.Movie() { Id = 2, Title = "Palm Springs", Director = "Max Barbakow", ReleaseDate = new DateTime(2020-01-26), Genre = "Romantic comedy", Technology = "2D", Language = "English" },
-                new Domain.Models.Movie() { Id = 3, Title = "The Assistant", Director = "Kitty Green", ReleaseDate = new DateTime(2019-08-30), Genre = "Drama", Technology = "2D", Language = "English" },
-                new Domain.Models.Movie() { Id = 4, Title = "Honeyland", Director = "Tamara Kotevska", ReleaseDate = new DateTime(2019-01-28), Genre = "Documentary", Technology = "2D", Language = "Macedonian" },
-                new Domain.Models.Movie() { Id = 5, Title = "Parasite", Director = "Bong Joon-ho", ReleaseDate = new DateTime(2019-05-30), Genre = "Dark comedy", Technology = "2D", Language = "Korean" },
-                new Domain.Models.Movie() { Id = 6, Title = "The midnight sky", Director = "George Clooney", ReleaseDate = new DateTime(2020-12-09), Genre = "Action/Sci-fi", Technology = "2D", Language = "English" },
-                new Domain.Models.Movie() { Id = 7, Title = "Wonder Woman", Director = "Patty Jenkins", ReleaseDate = new DateTime(2020-12-16), Genre = "Action/Sci-fi", Technology = "2D", Language = "English" },
-                new Domain.Models.Movie() { Id = 8, Title = "Birds of Prey", Director = "Cathy Yan", ReleaseDate = new DateTime(2020-01-26), Genre = "Action", Technology = "2D", Language = "English" },
-                new Domain.Models.Movie() { Id = 9, Title = "Possessor", Director = "Brandon Cronenberg", ReleaseDate = new DateTime(2020-10-02), Genre = "Sci-fi/Horror", Technology = "2D", Language = "English" },
-                new Domain.Models.Movie() { Id = 10, Title = "Mulan", Director = "Niki Caro", ReleaseDate = new DateTime(2020-09-04), Genre = "Action", Technology = "2D", Language = "English" }
+                new Domain.Models.Movie() { Id = 1, Title = "Tenet", Director = "Christopher Nolan", ReleaseDate = DateTime.Parse("2020-08-26"), Genre = "Action/Sci-fi", Technology = "2D", Language = "English", Description = "She is a angel princess from the angel world. She grew up loved by her parents and doesn't really know how to be evil or any of the common actions,   She is unable to cry due to Keita's accidental first wish, despite needed for him to wish." },
+                new Domain.Models.Movie() { Id = 2, Title = "Palm Springs", Director = "Max Barbakow", ReleaseDate = DateTime.Parse("2020-01-26"), Genre = "Romantic comedy", Technology = "2D", Language = "English", Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." },
+                new Domain.Models.Movie() { Id = 3, Title = "The Assistant", Director = "Kitty Green", ReleaseDate = DateTime.Parse("2019-08-30"), Genre = "Drama", Technology = "2D", Language = "English", Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." },
+                new Domain.Models.Movie() { Id = 4, Title = "Honeyland", Director = "Tamara Kotevska", ReleaseDate = DateTime.Parse("2019-01-28"), Genre = "Documentary", Technology = "2D", Language = "Macedonian", Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." },
+                new Domain.Models.Movie() { Id = 5, Title = "Parasite", Director = "Bong Joon-ho", ReleaseDate = DateTime.Parse("2019-05-30"), Genre = "Dark comedy", Technology = "2D", Language = "Korean", Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." },
+                new Domain.Models.Movie() { Id = 6, Title = "The midnight sky", Director = "George Clooney", ReleaseDate = DateTime.Parse("2020-12-09"), Genre = "Action/Sci-fi", Technology = "2D", Language = "English", Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." },
+                new Domain.Models.Movie() { Id = 7, Title = "Wonder Woman", Director = "Patty Jenkins", ReleaseDate = DateTime.Parse("2020-12-16"), Genre = "Action/Sci-fi", Technology = "2D", Language = "English", Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." },
+                new Domain.Models.Movie() { Id = 8, Title = "Birds of Prey", Director = "Cathy Yan", ReleaseDate = DateTime.Parse("2020-01-26"), Genre = "Action", Technology = "2D", Language = "English", Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." },
+                new Domain.Models.Movie() { Id = 9, Title = "Possessor", Director = "Brandon Cronenberg", ReleaseDate = DateTime.Parse("2020-10-02"), Genre = "Sci-fi/Horror", Technology = "2D", Language = "English", Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." },
+                new Domain.Models.Movie() { Id = 10, Title = "Mulan", Director = "Niki Caro", ReleaseDate = DateTime.Parse("2020-09-04"), Genre = "Action", Technology = "2D", Language = "English", Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." }
                 );
 
             modelBuilder.Entity<Actor>()
@@ -123,7 +123,257 @@ namespace SEAVUS.Movie.DataAccess
                     FirstName = "Hatidze",
                     LastName = "Muratova",
                     Age = 60
+                },
+                 new Actor()
+                 {
+                     Id = 7,
+                     FirstName = "Song",
+                     LastName = "Kang-ho",
+                     Age = 53
+                 },
+                  new Actor()
+                  {
+                      Id = 8,
+                      FirstName = "George",
+                      LastName = "Clooney",
+                      Age = 59
+                  },
+                  new Actor()
+                  {
+                      Id = 9,
+                      FirstName = "Chris",
+                      LastName = "Pine",
+                      Age = 40
+                  },
+                   new Actor()
+                   {
+                       Id = 10,
+                       FirstName = "Margot",
+                       LastName = "Robbie",
+                       Age = 40
+                   },
+                   new Actor()
+                   {
+                       Id = 11,
+                       FirstName = "Christopher",
+                       LastName = "Abbott",
+                       Age = 34
+                   },
+                  new Actor()
+                  {
+                      Id = 12,
+                      FirstName = "Liu",
+                      LastName = "Yifei",
+                      Age = 33
+                  });
+
+            modelBuilder.Entity<Cast>()
+                        .HasData(
+                 new Cast()
+                 {
+                     Id = 1,
+                     MovieId = 1,
+                     ActorId = 2
+                 },
+                 new Cast()
+                 {
+                     Id = 2,
+                     MovieId = 2,
+                     ActorId = 4
+                 },
+                 new Cast()
+                 {
+                     Id = 3,
+                     MovieId = 3,
+                     ActorId = 1
+                 },
+                 new Cast()
+                 {
+                     Id = 4,
+                     MovieId = 4,
+                     ActorId = 6
+                 },
+                 new Cast()
+                 {
+                     Id = 5,
+                     MovieId = 5,
+                     ActorId = 7
+                 },
+                 new Cast()
+                 {
+                     Id = 6,
+                     MovieId = 6,
+                     ActorId = 8
+                 },
+                 new Cast()
+                 {
+                     Id = 7,
+                     MovieId = 7,
+                     ActorId = 9
+                 },
+                new Cast()
+                {
+                    Id = 8,
+                    MovieId = 8,
+                    ActorId = 10
+                },
+                new Cast()
+                {
+                    Id = 9,
+                    MovieId = 9,
+                    ActorId = 11
+                },
+                new Cast()
+                {
+                    Id = 10,
+                    MovieId = 10,
+                    ActorId = 12
+                },
+                new Cast()
+                {
+                    Id = 11,
+                    MovieId = 3,
+                    ActorId = 3
+                },
+                new Cast()
+                {
+                    Id = 12,
+                    MovieId = 2,
+                    ActorId = 5
                 });
+
+            modelBuilder.Entity<Hall>()
+                        .HasData(
+                         new Hall()
+                         {
+                             Id = 1,
+                             Name = "Hall 01",
+                             Type = "Standard"
+                         });
+
+            modelBuilder.Entity<Show>()
+                        .HasData(
+                         new Show()
+                         {
+                             Id = 1,
+                             MovieId = 1,
+                             HallId = 1,
+                             StartDate = DateTime.Parse("2020-09-10"),
+                             EndDate = DateTime.Parse("2020-09-30"),
+                             ShowTime = DateTime.Now.ToLocalTime()
+                         },
+                         new Show()
+                         {
+                             Id = 2,
+                             MovieId = 2,
+                             HallId = 1,
+                             StartDate = DateTime.Parse("2020-02-10"),
+                             EndDate = DateTime.Parse("2020-03-02"),
+                             ShowTime = DateTime.Now.AddDays(2).ToLocalTime()
+                         });
+            modelBuilder.Entity<Seat>()
+                       .HasData(
+                        new Seat()
+                        {
+                            Id = 1,
+                            HallId = 1,
+                            Price = 9.00m,
+                            SeatNumber = 1,
+                            RowNumber = 1,
+                            Available = 1,
+                            Type = "Standard"
+                        },
+                        new Seat()
+                        {
+                            Id = 2,
+                            HallId = 1,
+                            Price = 9.00m,
+                            SeatNumber = 2,
+                            RowNumber = 1,
+                            Available = 1,
+                            Type = "Standard"
+                        },
+                        new Seat()
+                        {
+                            Id = 3,
+                            HallId = 1,
+                            Price = 9.00m,
+                            SeatNumber = 3,
+                            RowNumber = 1,
+                            Available = 1,
+                            Type = "Standard"
+                        },
+                        new Seat()
+                        {
+                            Id = 4,
+                            HallId = 1,
+                            Price = 9.00m,
+                            SeatNumber = 4,
+                            RowNumber = 1,
+                            Available = 1,
+                            Type = "Standard"
+                        },
+                        new Seat()
+                        {
+                            Id = 5,
+                            HallId = 1,
+                            Price = 9.00m,
+                            SeatNumber = 5,
+                            RowNumber = 1,
+                            Available = 1,
+                            Type = "Standard"
+                        },
+                        new Seat()
+                        {
+                            Id = 6,
+                            HallId = 1,
+                            Price = 9.00m,
+                            SeatNumber = 6,
+                            RowNumber = 1,
+                            Available = 1,
+                            Type = "Standard"
+                        },
+                         new Seat()
+                        {
+                            Id = 7,
+                            HallId = 1,
+                            Price = 9.00m,
+                            SeatNumber = 7,
+                            RowNumber = 1,
+                            Available = 1,
+                            Type = "Standard"
+                        },
+                        new Seat()
+                        {
+                            Id = 8,
+                            HallId = 1,
+                            Price = 9.00m,
+                            SeatNumber = 8,
+                            RowNumber = 1,
+                            Available = 1,
+                            Type = "Standard"
+                        },
+                        new Seat()
+                        {
+                            Id = 9,
+                            HallId = 1,
+                            Price = 9.00m,
+                            SeatNumber = 9,
+                            RowNumber = 1,
+                            Available = 1,
+                            Type = "Standard"
+                        },
+                        new Seat()
+                        {
+                            Id = 10,
+                            HallId = 1,
+                            Price = 9.00m,
+                            SeatNumber = 10,
+                            RowNumber = 1,
+                            Available = 1,
+                            Type = "Standard"
+                        });
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

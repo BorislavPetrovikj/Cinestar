@@ -21,7 +21,6 @@ namespace SEAVUS.Movie.Domain.Models
         public string Genre { get; set; }
         public string Technology { get; set; }
         public string Language { get; set; }
-
         public ICollection<Cast> MovieCast { get; set; }
         public ICollection<Show> Shows { get; set; }
     }

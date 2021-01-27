@@ -14,6 +14,14 @@
                 <h5>Genre: @Model.Genre</h5>
                 <p>Director: @Model.Director</p>
                 <p>Language: @Model.Language</p>
+                <p>Release date: @Model.ReleaseDate.Date</p>
+                <p>Cast:</p>
+                <ul>
+                    @foreach (var actor in Model.Actors)
+                    {
+                        <li>@actor.FirstName @actor.LastName</li>
+                    }
+                </ul>
 
                 <p>
                     <a asp-action="LogIn" asp-controller="User" class="btn btn-primary">Buy ticket</a>

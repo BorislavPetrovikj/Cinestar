@@ -15,5 +15,6 @@ namespace SEAVUS.Movie.WebModels.ViewModels
         public DateTime ReleaseDate { get; set; }
         public string Technology { get; set; }
         public string Language { get; set; }
+        public ICollection<MovieCastViewModel> Actors { get; set; }
     }
 }

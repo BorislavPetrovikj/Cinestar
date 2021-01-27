@@ -1,4 +1,5 @@
 ﻿using SEAVUS.Movie.DataAccess.Interfaces;
+using SEAVUS.Movie.Domain.Models;
 using SEAVUS.Movie.Services.Interfaces;
 using SEAVUS.Movie.WebModels.ViewModels;
 using System;
@@ -20,40 +21,46 @@ namespace SEAVUS.Movie.Services.Services
         {
             List<Domain.Models.Movie> movies = _movieRepository.GetAll().ToList();
 
-            List<MovieViewModel> mappedMovies = new List<MovieViewModel>();
-
-            foreach(var movie in movies)
-            {
-                MovieViewModel model = new MovieViewModel();
-
-                model.Id = movie.Id;
-                model.MovieTitle = movie.Title;
-                model.Description = movie.Description;
-                model.Image = movie.Image;
-                model.Genre = movie.Genre;
-
-                mappedMovies.Add(model);
-            }
-            return mappedMovies;
+            List<MovieViewModel> moviesList = (from m in movies
+                              select new MovieViewModel
+                              {
+                                  Id = m.Id,
+                                  MovieTitle = m.Title,
+                                  Description = m.Description,
+                                  Image = m.Image,
+                                  Genre = m.Genre
+                              }).ToList();
+          
+            return moviesList;
         }
-
         public MovieViewModel GetMovieById(int id)
         {
             Domain.Models.Movie movie = _movieRepository.GetById(id);
 
-            if(movie != null)
-            {
-                MovieViewModel model = new MovieViewModel();
+            List<Actor> movieActors = movie.MovieCast.Select(x => x.Actor).ToList();
 
-                model.Id = movie.Id;
-                model.MovieTitle = movie.Title;
-                model.Description = movie.Description;
-                model.Image = movie.Image;
-                model.Genre = movie.Genre;
-                model.Director = movie.Director;
-                model.Language = movie.Language;
-                model.ReleaseDate = movie.ReleaseDate;
-                model.Technology = movie.Technology;
+            List<MovieCastViewModel> actorsList = (from a in movieActors
+                                                   select new MovieCastViewModel
+                                                   {
+                                                       Id = a.Id,
+                                                       FirstName = a.FirstName,
+                                                       LastName = a.LastName
+                                                   }).ToList();
+            if (movie != null)
+            {
+                MovieViewModel model = new MovieViewModel()
+                {
+                    Id = movie.Id,
+                    MovieTitle = movie.Title,
+                    Description = movie.Description,
+                    Image = movie.Image,
+                    Genre = movie.Genre,
+                    Director = movie.Director,
+                    Language = movie.Language,
+                    ReleaseDate = movie.ReleaseDate,
+                    Technology = movie.Technology,
+                    Actors = actorsList
+                };
 
                 return model;
 
@@ -63,6 +70,19 @@ namespace SEAVUS.Movie.Services.Services
             }
         }
 
-        
+        //public List<MovieViewModel> SearchMovies(string searchTerm)
+        //{
+        //    List<MovieViewModel> movies = GetAllMovies().ToList();
+        //    if (string.IsNullOrEmpty(searchTerm))
+        //    {
+        //        return movies;
+        //    }
+
+        //    return movies.Where(m => m.MovieTitle.Contains(searchTerm) ||
+        //                        m.Genre.Contains(searchTerm) ||
+        //                        m.Director.Contains(searchTerm) ||
+        //                        m.ReleaseDate.Date.ToString().Contains(searchTerm) ||
+        //                        m.Director.Contains(searchTerm)).ToList();
+        //}
     }
 }

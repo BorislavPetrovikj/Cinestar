@@ -7,6 +7,14 @@ namespace SEAVUS.Movie.WebModels.ViewModels
 {
     public class RegisterViewModel
     {
+        [Required(ErrorMessage = "Please insert first name!")]
+        [Display(Name = "Enter first name:")]
+        public string Firstname { get; set; }
+
+        [Required(ErrorMessage = "Please insert last name!")]
+        [Display(Name = "Enter last name:")]
+        public string Lastname { get; set; }
+
         [Required(ErrorMessage = "Please insert username!")]
         [Display(Name = "Enter username:")]
         public string Username { get; set; }
@@ -23,6 +31,7 @@ namespace SEAVUS.Movie.WebModels.ViewModels
         public string Password { get; set; }
 
         [Required(ErrorMessage = "Please confirm your password!")]
+
         [Display(Name = "Confirm password:")]
         public string ConfirmPassword { get; set; }
 

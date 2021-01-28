@@ -70,7 +70,10 @@ namespace SEAVUS.Movie.Web.Controllers
             catch (Exception ex)
             {
                 string message = ex.Message;
-                throw new Exception(message);
+
+                ViewBag.Message = message;
+
+                return RedirectToAction("Error", "Home");
             }
 
             return View(model);

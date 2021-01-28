@@ -70,7 +70,7 @@ using SEAVUS.Movie.WebModels.ViewModels;
             WriteLiteral("\r\n<h2>Details</h2>\r\n\r\n<div class=\"movies\">\r\n        <div class=\"thumbnail\">\r\n            ");
             EndContext();
             BeginContext(155, 97, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "27ac46b408044487ab6679993d39ec8c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "1dbb91f69219452c951080ef86c6c3ee", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -195,7 +195,7 @@ AddHtmlAttributeValue("", 213, Model.Id, 213, 11, false);
             WriteLiteral("                </ul>\r\n\r\n                <p>\r\n                    ");
             EndContext();
             BeginContext(894, 82, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "059087b54cf64513a0ef666b0ef97483", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5cbda6331a2b4071aaf1d003fd61b435", async() => {
                 BeginContext(962, 10, true);
                 WriteLiteral("Buy ticket");
                 EndContext();

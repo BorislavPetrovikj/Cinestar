@@ -37,7 +37,7 @@
                    @*add authorization*@
                     @if (User.IsInRole("admin"))
                     {
-                        
+                        <li><a asp-area="" asp-controller="User" asp-action="ShowPanel">Admin Panel</a></li>
                     }else
                     {
                         if (User.Identity.IsAuthenticated)

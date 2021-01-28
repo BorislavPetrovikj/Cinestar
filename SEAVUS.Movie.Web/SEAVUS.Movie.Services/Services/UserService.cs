@@ -58,19 +58,21 @@ namespace SEAVUS.Movie.Services.Services
         {
             User user = new User
             {
+                FullName = String.Format("{0} {1}", registerViewModel.Firstname, registerViewModel.Lastname),
                 UserName = registerViewModel.Username,
                 Email = registerViewModel.Email,
                 BirthDate = registerViewModel.Birthdate,
                 Reservations = new List<Reservation>() { },
                 Tickets = new List<Ticket>() { }
-               
             };
 
             var password = registerViewModel.Password;
 
+            if (password != registerViewModel.ConfirmPassword)
+                throw new Exception("Password does not match!");
             var result = _userManager.CreateAsync(user, password).Result;
-
             bool isAdmin = false;
+
             if (result.Succeeded)
             {
                 var currentUser = _userManager.FindByNameAsync(user.UserName).Result;
@@ -94,6 +96,8 @@ namespace SEAVUS.Movie.Services.Services
         {
             _signInManager.SignOutAsync();
         }
+
+        
 
     }
 }

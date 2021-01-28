@@ -72,8 +72,6 @@ namespace SEAVUS.Movie.Web.Controllers
                 string message = ex.Message;
 
                 ViewBag.Message = message;
-
-                return RedirectToAction("Error", "Home");
             }
 
             return View(model);

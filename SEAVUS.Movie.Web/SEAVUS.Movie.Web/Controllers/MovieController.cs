@@ -18,8 +18,6 @@ namespace SEAVUS.Movie.Web.Controllers
         }
         public IActionResult Movies(string searchTerm)
         {
-            
-
             ViewData["Search"] = searchTerm;
 
             List<MovieViewModel> movies = _movieService.SearchMovies(searchTerm).ToList();
@@ -31,6 +29,12 @@ namespace SEAVUS.Movie.Web.Controllers
         {
             MovieViewModel movie = _movieService.GetMovieById(id);
             return View(movie);
+        }
+
+        public IActionResult MoviePanel()
+        {
+            List<MovieViewModel> movies = _movieService.GetAllMovies().ToList();
+            return View(movies);
         }
     }
 }

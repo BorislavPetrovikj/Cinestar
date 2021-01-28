@@ -82,7 +82,7 @@
                             <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-lock"></span></span>
                             <input class="form-control" type="password" asp-for="ConfirmPassword" placeholder="Confirm password" />
                         </div>
-                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        <span asp-validation-for="ConfirmPassword" class="text-danger">@ViewBag.Message</span>
                     </div>
                 </div>
                 <br />

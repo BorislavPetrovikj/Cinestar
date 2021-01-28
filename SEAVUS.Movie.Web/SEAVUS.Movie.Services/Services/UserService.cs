@@ -71,6 +71,7 @@ namespace SEAVUS.Movie.Services.Services
             if (password != registerViewModel.ConfirmPassword)
                 throw new Exception("Password does not match!");
             var result = _userManager.CreateAsync(user, password).Result;
+
             bool isAdmin = false;
 
             if (result.Succeeded)
@@ -96,8 +97,6 @@ namespace SEAVUS.Movie.Services.Services
         {
             _signInManager.SignOutAsync();
         }
-
-        
 
     }
 }

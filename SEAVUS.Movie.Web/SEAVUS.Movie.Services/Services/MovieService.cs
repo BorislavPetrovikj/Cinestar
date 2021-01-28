@@ -86,5 +86,15 @@ namespace SEAVUS.Movie.Services.Services
                                 m.ReleaseDate.Date.ToString().Contains(searchTerm) ||
                                 m.Director.Contains(searchTerm)).ToList();
         }
+
+        public List<MovieViewModel> Delete(int id)
+        {
+            int movieId = _movieRepository.Delete(id);
+            List<MovieViewModel> movies = GetAllMovies().ToList();
+
+            if (movieId == -1)
+                throw new Exception("Movie not found!");
+            return movies;
+        }
     }
 }

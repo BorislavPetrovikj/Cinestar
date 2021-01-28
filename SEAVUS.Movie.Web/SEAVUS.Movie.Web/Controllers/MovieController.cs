@@ -36,5 +36,20 @@ namespace SEAVUS.Movie.Web.Controllers
             List<MovieViewModel> movies = _movieService.GetAllMovies().ToList();
             return View(movies);
         }
+
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                _movieService.Delete(id);
+            }
+            catch (Exception ex)
+            {
+                string message = ex.Message;
+                ViewBag.Message = message;
+            }
+            
+            return RedirectToAction("MoviePanel");
+        }
     }
 }

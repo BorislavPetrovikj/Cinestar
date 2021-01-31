@@ -4,7 +4,6 @@ using SEAVUS.Movie.WebModels.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace SEAVUS.Movie.Web.Controllers
 {
@@ -51,5 +50,62 @@ namespace SEAVUS.Movie.Web.Controllers
             
             return RedirectToAction("MoviePanel");
         }
+
+        public IActionResult Add()
+        {
+            MovieViewModel movie = new MovieViewModel();
+            return View(movie);
+        }
+
+        [HttpPost]
+        public IActionResult Add(MovieViewModel model)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    _movieService.AddNewMovie(model);
+                    return RedirectToAction("index", "home");
+                }
+            }
+            catch (Exception ex)
+            {
+                string message = ex.Message;
+
+                ViewBag.Message = message;
+            }
+
+            return View(model);
+        }
+
+        public IActionResult Edit(int id)
+        {
+            MovieViewModel model = _movieService.GetMovieById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(MovieViewModel model)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    _movieService.EditMovie(model);
+                    return RedirectToAction("index", "home");
+                }
+            }
+            catch (Exception ex)
+            {
+                string message = ex.Message;
+
+                ViewBag.Message = message;
+            }
+           
+
+            return View(model);
+        }
+        
     }
 }

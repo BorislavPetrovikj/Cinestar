@@ -11,5 +11,7 @@ namespace SEAVUS.Movie.Services.Interfaces
         MovieViewModel GetMovieById(int id);
         List<MovieViewModel> SearchMovies(string searchTerm);
         List<MovieViewModel> Delete(int id);
+        void AddNewMovie(MovieViewModel movie);
+        void EditMovie(MovieViewModel model);
     }
 }

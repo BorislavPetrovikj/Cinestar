@@ -10,15 +10,21 @@ namespace SEAVUS.Movie.WebModels.ViewModels
         public int Id { get; set; }
 
         [Display(Name = "Movie Title")]
+        [Required(ErrorMessage = "This field is required!")]
         public string MovieTitle { get; set; }
         public string  Image { get; set; }
+        [Required(ErrorMessage = "This field is required!")]
         public string Description { get; set; }
+        [Required(ErrorMessage = "This field is required!")]
         public string Genre { get; set; }
+        [Required(ErrorMessage = "This field is required!")]
         public string Director { get; set; }
-
+        [Required(ErrorMessage = "This field is required!")]
         [Display(Name = "Release Date")]
         public DateTime ReleaseDate { get; set; }
+        [Required(ErrorMessage = "This field is required!")]
         public string Technology { get; set; }
+        [Required(ErrorMessage = "This field is required!")]
         public string Language { get; set; }
         public ICollection<MovieCastViewModel> Actors { get; set; }
     }

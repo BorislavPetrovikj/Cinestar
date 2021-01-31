@@ -79,11 +79,14 @@ namespace SEAVUS.Movie.Services.Services
             {
                 return movies;
             }
+            if (DateTime.TryParse(searchTerm, out var dateTime))
+            {
+                return movies.Where(x => x.ReleaseDate.ToShortDateString() == dateTime.ToShortDateString()).ToList();
+            }
 
             return movies.Where(m => m.MovieTitle.Contains(searchTerm) ||
+                                m.ReleaseDate.ToString().Contains(searchTerm) ||
                                 m.Genre.Contains(searchTerm) ||
-                                m.Director.Contains(searchTerm) ||
-                                m.ReleaseDate.Date.ToString().Contains(searchTerm) ||
                                 m.Director.Contains(searchTerm)).ToList();
         }
 
@@ -95,6 +98,46 @@ namespace SEAVUS.Movie.Services.Services
             if (movieId == -1)
                 throw new Exception("Movie not found!");
             return movies;
+        }
+        public void AddNewMovie(MovieViewModel model)
+        {
+            //var actors = model.Actors;
+           if(model != null)
+            {
+                Domain.Models.Movie movie = new Domain.Models.Movie()
+                {
+                    Id = model.Id,
+                    Title = model.MovieTitle,
+                    Description = model.Description,
+                    Image = model.Image,
+                    Genre = model.Genre,
+                    Director = model.Director,
+                    Language = model.Language,
+                    ReleaseDate = model.ReleaseDate,
+                    Technology = model.Technology,
+                    MovieCast = new List<Cast> { },
+                    Shows = new List<Show> { }
+                };
+
+                _movieRepository.Insert(movie);
+            }
+        }
+        public void EditMovie(MovieViewModel model)
+        {
+            if (model != null)
+            {
+                Domain.Models.Movie movie = _movieRepository.GetById(model.Id);
+                    movie.Id = model.Id;
+                    movie.Title = model.MovieTitle;
+                    movie.Description = model.Description;
+                    movie.Image = model.Image;
+                    movie.Genre = model.Genre;
+                    movie.Director = model.Director;
+                    movie.Language = model.Language;
+                    movie.ReleaseDate = model.ReleaseDate;
+                    movie.Technology = model.Technology;
+                _movieRepository.Update(movie);
+            }
         }
     }
 }

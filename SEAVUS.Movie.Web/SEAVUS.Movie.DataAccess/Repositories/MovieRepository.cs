@@ -54,7 +54,9 @@ namespace SEAVUS.Movie.DataAccess.Repositories
 
         public int Update(Domain.Models.Movie entity)
         {
-            _db.Movies.Update(entity);
+            Domain.Models.Movie movie = _db.Movies.SingleOrDefault(x => x.Id == entity.Id);
+            if (movie != null)
+                _db.Movies.Update(entity);
             int movieId = _db.SaveChanges();
             return movieId;
         }

@@ -1,0 +1,85 @@
+﻿@model MovieViewModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit Movie</h2>
+<div class="container">
+    <div class="row">
+        <form class="form-horizontal" asp-action="Edit" asp-controller="Movie" method="post">
+            <fieldset>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" asp-for="MovieTitle">Movie Title</label>
+                    <div class="col-md-5">
+                        <input type="text" asp-for="MovieTitle" placeholder="movie title" class="form-control input-md" required="">
+                    </div>
+                    <span asp-validation-for="MovieTitle" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" asp-for="Director">Director</label>
+                    <div class="col-md-5">
+                        <input type="text" asp-for="Director" placeholder="director" class="form-control input-md" required="">
+                    </div>
+                    <span asp-validation-for="Director" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" asp-for="Genre">Genre</label>
+                    <div class="col-md-5">
+                        <input type="text" asp-for="Genre" placeholder="genre" class="form-control input-md" required="">
+                    </div>
+                    <span asp-validation-for="Genre" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" asp-for="Description">Description</label>
+                    <div class="col-md-5">
+                        <textarea class="form-control" asp-for="Description" placeholder="This movie is about..."></textarea>
+                    </div>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" asp-for="ReleaseDate">Release Date</label>
+                    <div class="col-md-5">
+                        <input asp-for="ReleaseDate" type="datetime" placeholder="release date" class="form-control input-md" required="">
+                    </div>
+                    <span asp-validation-for="ReleaseDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" asp-for="Technology">Technology</label>
+                    <div class="col-md-5">
+                        <input asp-for="Technology" type="text" placeholder="technology" class="form-control input-md" required="">
+                    </div>
+                    <span asp-validation-for="Technology" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" asp-for="Language">Language</label>
+                    <div class="col-md-5">
+                        <select asp-for="Language" class="form-control">
+                            <option selected disabled>Select Language</option>
+                            <option value="English">English</option>
+                            <option value="Macedonian">Macedonian</option>
+                            <option value="German">German</option>
+                            <option value="Malayalam">Malayalam</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" asp-for="Image" >Upload Image</label>
+                    <div class="col-md-5">
+                        <input type="file" asp-for="Image" placeholder="upload image">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-success" />
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+<div>
+    @Html.ActionLink("Back to List", "MoviePanel")
+</div>
+

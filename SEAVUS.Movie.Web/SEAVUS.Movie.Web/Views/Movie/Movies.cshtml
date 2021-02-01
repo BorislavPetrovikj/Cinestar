@@ -17,11 +17,11 @@
     </form>
 </div>
 <br />
-<div class="movies">
+<div class="row">
     @foreach (var movie in Model)
     {
-        <div class="thumbnail">
-            <img src="~/images/@(movie.Id).jpg" alt="Movie image" width="150" class="left" />
+        <div class="thumbnail col-md-4 panel-success text-center">
+            <img src="~/images/@(movie.Id).jpg" alt="Movie image" width="150" />
             <div class="caption">
                 <h3>@movie.MovieTitle</h3>
                 <h4>@movie.Description</h4>

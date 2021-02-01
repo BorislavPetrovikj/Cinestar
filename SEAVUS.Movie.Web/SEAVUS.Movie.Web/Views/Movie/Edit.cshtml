@@ -71,7 +71,7 @@
                     </div>
                 </div>
                 <hr />
-                <h2>Edit Movie Cast</h2>
+                @*<h2>Edit Movie Cast</h2>
                 @for (int i = 0; i < Model.Actors.Count; i++)
                 {
                     <p>Actor no: @(i + 1)</p>
@@ -79,18 +79,18 @@
                         <div class="col-md-4">
                             <div class="input-group input-group-md">
                                 <span class="input-group-addon">@Html.Label(expression: $"model.Actors[{i}].FirstName", "First Name")</span>
-                                @Html.TextBox($"model.Actors[{i}].FirstName", Model.Actors[i].FirstName, null, new { @class = "form-control input-md" })
+                                @Html.TextBox($"model.Actors[{i}].FirstName", Model.Actors[i].FirstName, null, new { @class = "form-control" })
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="input-group input-group-md">
                                 <span class="input-group-addon">@Html.Label(expression: $"model.Actors[{i}].LastName", "Last Name")</span>
-                                @Html.TextBox($"model.Actors[{i}].LastName", Model.Actors[i].LastName, null, new { @class = "form-control input-md" })
+                                @Html.TextBox($"model.Actors[{i}].LastName", Model.Actors[i].LastName, null, new { @class = "form-control" })
                             </div>
                         </div>
                     </div>
-                 }
-                <hr />
+                }
+                <hr />*@
                 <div class="form-group">
                     <div class="col-md-10">
                         <input type="submit" value="Save" class="btn btn-success" />

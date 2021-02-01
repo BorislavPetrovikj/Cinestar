@@ -21,7 +21,7 @@
     @foreach (var movie in Model)
     {
         <div class="thumbnail">
-            <img src="~/images/Movies/@(movie.Id).png" alt="Movie image" />
+            <img src="~/images/@(movie.Id).jpg" alt="Movie image" width="150" class="left" />
             <div class="caption">
                 <h3>@movie.MovieTitle</h3>
                 <h4>@movie.Description</h4>
@@ -31,5 +31,6 @@
                 </p>
             </div>
         </div>
+
     }
 </div>

@@ -126,7 +126,7 @@ namespace SEAVUS.Movie.Services.Services
             {
                 Domain.Models.Movie movie = _movieRepository.GetById(model.Id);
 
-                List<Actor> actors = movie.MovieCast.Select(x => x.Actor).ToList();
+                //List<Actor> actors = movie.MovieCast.Select(x => x.Actor).ToList();
 
                     movie.Id = model.Id;
                     movie.Title = model.MovieTitle;
@@ -138,17 +138,16 @@ namespace SEAVUS.Movie.Services.Services
                     movie.ReleaseDate = model.ReleaseDate;
                     movie.Technology = model.Technology;
 
-                foreach(var cast in movie.MovieCast)
-                {
-                    foreach(var actor in actors)
-                    {
-                        cast.ActorId = actor.Id;
-                        cast.Actor.FirstName = actor.FirstName;
-                        cast.Actor.LastName = actor.LastName;
-                        cast.Actor.Age = actor.Age;
-
-                    }
-                }
+                //foreach(var cast in movie.MovieCast)
+                //{
+                //    foreach(var actor in actors)
+                //    {
+                //        cast.ActorId = actor.Id;
+                //        cast.Actor.FirstName = actor.FirstName;
+                //        cast.Actor.LastName = actor.LastName;
+                //        cast.Actor.Age = actor.Age;
+                //    }
+                //}
                 _movieRepository.Update(movie);
             }
         }

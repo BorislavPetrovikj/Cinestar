@@ -26,6 +26,6 @@ namespace SEAVUS.Movie.WebModels.ViewModels
         public string Technology { get; set; }
         [Required(ErrorMessage = "This field is required!")]
         public string Language { get; set; }
-        public ICollection<MovieCastViewModel> Actors { get; set; }
+        public List<MovieCastViewModel> Actors { get; set; }
     }
 }

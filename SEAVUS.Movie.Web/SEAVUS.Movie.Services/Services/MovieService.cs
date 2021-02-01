@@ -71,7 +71,6 @@ namespace SEAVUS.Movie.Services.Services
                 throw new Exception($"Product with id: {id} is not found");
             }
         }
-
         public List<MovieViewModel> SearchMovies(string searchTerm)
         {
             List<MovieViewModel> movies = GetAllMovies().ToList();
@@ -89,7 +88,6 @@ namespace SEAVUS.Movie.Services.Services
                                 m.Genre.Contains(searchTerm) ||
                                 m.Director.Contains(searchTerm)).ToList();
         }
-
         public List<MovieViewModel> Delete(int id)
         {
             int movieId = _movieRepository.Delete(id);
@@ -101,7 +99,7 @@ namespace SEAVUS.Movie.Services.Services
         }
         public void AddNewMovie(MovieViewModel model)
         {
-            //var actors = model.Actors;
+
            if(model != null)
             {
                 Domain.Models.Movie movie = new Domain.Models.Movie()
@@ -127,6 +125,9 @@ namespace SEAVUS.Movie.Services.Services
             if (model != null)
             {
                 Domain.Models.Movie movie = _movieRepository.GetById(model.Id);
+
+                List<Actor> actors = movie.MovieCast.Select(x => x.Actor).ToList();
+
                     movie.Id = model.Id;
                     movie.Title = model.MovieTitle;
                     movie.Description = model.Description;
@@ -136,6 +137,18 @@ namespace SEAVUS.Movie.Services.Services
                     movie.Language = model.Language;
                     movie.ReleaseDate = model.ReleaseDate;
                     movie.Technology = model.Technology;
+
+                foreach(var cast in movie.MovieCast)
+                {
+                    foreach(var actor in actors)
+                    {
+                        cast.ActorId = actor.Id;
+                        cast.Actor.FirstName = actor.FirstName;
+                        cast.Actor.LastName = actor.LastName;
+                        cast.Actor.Age = actor.Age;
+
+                    }
+                }
                 _movieRepository.Update(movie);
             }
         }

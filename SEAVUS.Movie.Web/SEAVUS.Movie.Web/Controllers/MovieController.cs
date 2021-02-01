@@ -65,7 +65,7 @@ namespace SEAVUS.Movie.Web.Controllers
                 if (ModelState.IsValid)
                 {
                     _movieService.AddNewMovie(model);
-                    return RedirectToAction("index", "home");
+                    return RedirectToAction("MoviePanel", "Movie");
                 }
             }
             catch (Exception ex)
@@ -93,7 +93,7 @@ namespace SEAVUS.Movie.Web.Controllers
                 if (ModelState.IsValid)
                 {
                     _movieService.EditMovie(model);
-                    return RedirectToAction("index", "home");
+                    return RedirectToAction("MoviePanel", "Movie");
                 }
             }
             catch (Exception ex)

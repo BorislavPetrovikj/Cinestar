@@ -1,0 +1,14 @@
+﻿body {
+
+}
+
+.movieImage {
+    display: block;
+    width: 95% !important;
+    height: 400px !important;
+}
+
+.thumbnail {
+    margin: 5px !important;
+    margin-left: 70px !important;
+}

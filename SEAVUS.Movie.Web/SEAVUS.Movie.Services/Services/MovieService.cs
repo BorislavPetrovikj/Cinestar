@@ -99,23 +99,40 @@ namespace SEAVUS.Movie.Services.Services
         }
         public void AddNewMovie(MovieViewModel model)
         {
-
-           if(model != null)
+            if (model != null)
             {
-                Domain.Models.Movie movie = new Domain.Models.Movie()
-                {
-                    Id = model.Id,
-                    Title = model.MovieTitle,
-                    Description = model.Description,
-                    Image = model.Image,
-                    Genre = model.Genre,
-                    Director = model.Director,
-                    Language = model.Language,
-                    ReleaseDate = model.ReleaseDate,
-                    Technology = model.Technology,
-                    MovieCast = new List<Cast> { },
-                    Shows = new List<Show> { }
-                };
+                Domain.Models.Movie movie = new Domain.Models.Movie();
+
+                List<Actor> actors = (from a in model.Actors
+                                      select new Actor
+                                      {
+                                          Id = a.Id,
+                                          FirstName = a.FirstName,
+                                          LastName = a.LastName,
+                                          Age = a.Age
+                                      }).ToList();
+
+                List<Cast> movieCast = (from a in actors
+                                        select new Cast
+                                        {
+                                            Actor = a,
+                                            ActorId = a.Id,
+                                            Movie = movie,
+                                            MovieId = movie.Id
+                                        }).ToList();
+
+                movie.Id = model.Id;
+                movie.Title = model.MovieTitle;
+                movie.Description = model.Description;
+                movie.Image = model.Image;
+                movie.Genre = model.Genre;
+                movie.Director = model.Director;
+                movie.Language = model.Language;
+                movie.ReleaseDate = model.ReleaseDate;
+                movie.Technology = model.Technology;
+                movie.MovieCast = movieCast;
+                movie.Shows = new List<Show> { };
+
 
                 _movieRepository.Insert(movie);
             }

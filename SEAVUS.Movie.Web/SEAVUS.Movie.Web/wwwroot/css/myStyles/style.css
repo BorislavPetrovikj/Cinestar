@@ -4,11 +4,21 @@
 
 .movieImage {
     display: block;
-    width: 95% !important;
+    width: 100% !important;
     height: 400px !important;
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
 }
 
 .thumbnail {
     margin: 5px !important;
     margin-left: 70px !important;
+    margin-bottom: 20px !important;
+    padding: 0px !important;
+    -webkit-box-shadow: 2px 2px 12px -1px rgba(0,0,0,0.59);
+    -moz-box-shadow: 2px 2px 12px -1px rgba(0,0,0,0.59);
+    box-shadow: 2px 2px 12px -1px rgba(0,0,0,0.59);
+    border-radius: 12px;
+    border: none !important;
+    font-family: 'Alegreya Sans', sans-serif;
 }

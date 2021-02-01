@@ -4,32 +4,78 @@
 }
 
 <h1>Movies</h1>
-<div class="header-right">
-    <form method="get">
-        <div class="input-group">
-            <input class="form-control" type="text" placeholder="Search movie" value="@ViewData["Search"]" name="searchTerm" />
-            <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-search"></span></span>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <nav>
+                <div class="nav nav-justified navbar-nav">
+                    <form role="search">
+                        <div class="input-group">
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-search btn-default dropdown-toggle" data-toggle="dropdown">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                    <span class="label-icon">Search</span>
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu pull-left" role="menu">
+                                    <li>
+                                        <a href="#">
+                                            <span class="glyphicon glyphicon-user"></span>
+                                            <span class="label-icon">Search By User</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span class="glyphicon glyphicon-book"></span>
+                                            <span class="label-icon">Search By Organization</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <input type="text" class="form-control" placeholder="Search term" value="@ViewData["Search"]" name="searchTerm">
+
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-search btn-default">
+                                    GO
+                                </button>
+
+
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </nav>
         </div>
-        <br />
-        <div class="input-group">
-            <button type="submit" class="btn btn-success">Search</button>
-        </div>
-    </form>
+    </div>
 </div>
-<br />
-<div class="row">
-    @foreach (var movie in Model)
-    {
-        <div class="thumbnail col-md-3 text-center">
-            <img src="~/images/@(movie.Id).jpg" alt="Movie image" class="movieImage" />
-            <div class="caption">
-                <h3>@movie.MovieTitle</h3>
-                <h4>@movie.Description</h4>
-                <h5>@movie.Genre</h5>
-                <p>
-                    <a asp-action="Details" asp-route-id="@movie.Id" class="btn btn-primary">Details</a>
-                </p>
+            @*<div class="header-right">
+                    <form method="get">
+                        <div class="input-group">
+                            <input class="form-control" type="text" placeholder="Search movie" value="@ViewData["Search"]" name="searchTerm" />
+                            <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-search"></span></span>
+                        </div>
+                        <br />
+                        <div class="input-group">
+                            <button type="submit" class="btn btn-success">Search</button>
+                        </div>
+                    </form>
+                </div>*@
+            <br />
+            <div class="row">
+                @foreach (var movie in Model)
+                {
+                    <div class="thumbnail col-md-3 text-center">
+                        <img src="~/images/@(movie.Id).jpg" alt="Movie image" class="movieImage" />
+                        <div class="caption">
+                            <h3>@movie.MovieTitle</h3>
+                            <h4>@movie.Description</h4>
+                            <h5>@movie.Genre</h5>
+                            <p>
+                                <a asp-action="Details" asp-route-id="@movie.Id" class="btn btn-primary">Details</a>
+                            </p>
+                        </div>
+                    </div>
+                }
             </div>
-        </div>
-    }
-</div>

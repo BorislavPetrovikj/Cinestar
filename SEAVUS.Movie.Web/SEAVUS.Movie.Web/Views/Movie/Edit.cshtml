@@ -81,14 +81,21 @@
                                 <span class="input-group-addon">@Html.LabelFor(m => m.Actors[i].FirstName)</span>
                                 @Html.TextBoxFor(x => x.Actors[i].FirstName, new { @class = "form-control" })
                             </div>
-                            <span class="text-danger">@Html.ValidationMessageFor(x => x.Actors[i].FirstName)</span>
+                            <span class="text-danger">@Html.ValidationMessageFor(m => m.Actors[i].FirstName)</span>
                         </div>
                         <div class="col-md-4">
                             <div class="input-group input-group-md">
                                 <span class="input-group-addon">@Html.LabelFor(m => m.Actors[i].LastName)</span>
-                                @Html.TextBoxFor(x=>x.Actors[i].LastName, new { @class = "form-control" })
+                                @Html.TextBoxFor(x => x.Actors[i].LastName, new { @class = "form-control" })
                             </div>
-                            <span class="text-danger">@Html.ValidationMessageFor(x=>x.Actors[i].LastName)</span>
+                            <span class="text-danger">@Html.ValidationMessageFor(m => m.Actors[i].LastName)</span>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-group input-group-md">
+                                <span class="input-group-addon">@Html.LabelFor(m => m.Actors[i].Age)</span>
+                                @Html.TextBoxFor(m => m.Actors[i].Age, new { type="number", min="1", max="100" })
+                            </div>
+                            <span class="text-danger">@Html.ValidationMessageFor(m => m.Actors[i].Age)</span>
                         </div>
                     </div>
                 }

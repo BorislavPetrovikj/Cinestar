@@ -71,27 +71,27 @@
                     </div>
                 </div>
                 <hr />
-                @*<h2>Edit Movie Cast</h2>
+                <h2>Edit Movie Cast</h2>
                 @for (int i = 0; i < Model.Actors.Count; i++)
                 {
                     <p>Actor no: @(i + 1)</p>
                     <div class="row">
                         <div class="col-md-4">
                             <div class="input-group input-group-md">
-                                <span class="input-group-addon">@Html.Label(expression: $"model.Actors[{i}].FirstName", "First Name")</span>
-                                @Html.TextBox($"model.Actors[{i}].FirstName", Model.Actors[i].FirstName, null, new { @class = "form-control" })
+                                <span class="input-group-addon">@Html.LabelFor(m => m.Actors[i].FirstName)</span>
+                                @Html.TextBoxFor(x => x.Actors[i].FirstName, new { @class = "form-control" })
                             </div>
-                            <span class="text-danger">@Html.ValidationMessage(expression: $"model.Actors[{i}].FirstName") </span>
+                            <span class="text-danger">@Html.ValidationMessageFor(x => x.Actors[i].FirstName)</span>
                         </div>
                         <div class="col-md-4">
                             <div class="input-group input-group-md">
-                                <span class="input-group-addon">@Html.Label(expression: $"model.Actors[{i}].LastName", "Last Name")</span>
-                                @Html.TextBox($"model.Actors[{i}].LastName", Model.Actors[i].LastName, null, new { @class = "form-control" })
+                                <span class="input-group-addon">@Html.LabelFor(m => m.Actors[i].LastName)</span>
+                                @Html.TextBoxFor(x=>x.Actors[i].LastName, new { @class = "form-control" })
                             </div>
-                            <span class="text-danger">@Html.ValidationMessage(expression: $"model.Actors[{i}].FirstName")</span>
+                            <span class="text-danger">@Html.ValidationMessageFor(x=>x.Actors[i].LastName)</span>
                         </div>
                     </div>
-                }*@
+                }
                 <hr />
                 <div class="form-group">
                     <div class="col-md-10">

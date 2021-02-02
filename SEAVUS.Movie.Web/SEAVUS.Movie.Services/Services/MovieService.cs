@@ -103,23 +103,23 @@ namespace SEAVUS.Movie.Services.Services
             {
                 Domain.Models.Movie movie = new Domain.Models.Movie();
 
-                List<Actor> actors = (from a in model.Actors
-                                      select new Actor
-                                      {
-                                          Id = a.Id,
-                                          FirstName = a.FirstName,
-                                          LastName = a.LastName,
-                                          Age = a.Age
-                                      }).ToList();
+                //List<Actor> actors = (from a in model.Actors
+                //                      select new Actor
+                //                      {
+                //                          Id = a.Id,
+                //                          FirstName = a.FirstName,
+                //                          LastName = a.LastName,
+                //                          Age = a.Age
+                //                      }).ToList();
 
-                List<Cast> movieCast = (from a in actors
-                                        select new Cast
-                                        {
-                                            Actor = a,
-                                            ActorId = a.Id,
-                                            Movie = movie,
-                                            MovieId = movie.Id
-                                        }).ToList();
+                //List<Cast> movieCast = (from a in actors
+                //                        select new Cast
+                //                        {
+                //                            Actor = a,
+                //                            ActorId = a.Id,
+                //                            Movie = movie,
+                //                            MovieId = movie.Id
+                //                        }).ToList();
 
                 movie.Id = model.Id;
                 movie.Title = model.MovieTitle;
@@ -130,7 +130,7 @@ namespace SEAVUS.Movie.Services.Services
                 movie.Language = model.Language;
                 movie.ReleaseDate = model.ReleaseDate;
                 movie.Technology = model.Technology;
-                movie.MovieCast = movieCast;
+                //movie.MovieCast = movieCast;
                 movie.Shows = new List<Show> { };
 
 
@@ -141,9 +141,25 @@ namespace SEAVUS.Movie.Services.Services
         {
             if (model != null)
             {
-                Domain.Models.Movie movie = _movieRepository.GetById(model.Id);
+                Domain.Models.Movie movie = _movieRepository.GetAll().Where(x => x.Title == model.MovieTitle).SingleOrDefault();
 
-                //List<Actor> actors = movie.MovieCast.Select(x => x.Actor).ToList();
+                //List<Actor> actors = (from a in model.Actors
+                //                      select new Actor
+                //                      {
+                //                          Id = a.Id,
+                //                          FirstName = a.FirstName,
+                //                          LastName = a.LastName,
+                //                          Age = a.Age
+                //                      }).ToList();
+
+                //List<Cast> movieCast = (from a in actors
+                //                        select new Cast
+                //                        {
+                //                            Actor = a,
+                //                            ActorId = a.Id,
+                //                            Movie = movie,
+                //                            MovieId = movie.Id
+                //                        }).ToList();
 
                     movie.Id = model.Id;
                     movie.Title = model.MovieTitle;
@@ -154,17 +170,8 @@ namespace SEAVUS.Movie.Services.Services
                     movie.Language = model.Language;
                     movie.ReleaseDate = model.ReleaseDate;
                     movie.Technology = model.Technology;
+                    //movie.MovieCast = movieCast;
 
-                //foreach(var cast in movie.MovieCast)
-                //{
-                //    foreach(var actor in actors)
-                //    {
-                //        cast.ActorId = actor.Id;
-                //        cast.Actor.FirstName = actor.FirstName;
-                //        cast.Actor.LastName = actor.LastName;
-                //        cast.Actor.Age = actor.Age;
-                //    }
-                //}
                 _movieRepository.Update(movie);
             }
         }

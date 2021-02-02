@@ -6,3 +6,4 @@ C:\Users\Angela\Desktop\SEDC 2019-20\Cinestar\SEAVUS.Movie.Web\SEAVUS.Movie.WebM
 C:\Users\Angela\Desktop\SEDC 2019-20\Cinestar\SEAVUS.Movie.Web\SEAVUS.Movie.WebModels\obj\Debug\netcoreapp2.1\SEAVUS.Movie.WebModels.csproj.CoreCompileInputs.cache
 C:\Users\Angela\Desktop\SEDC 2019-20\Cinestar\SEAVUS.Movie.Web\SEAVUS.Movie.WebModels\obj\Debug\netcoreapp2.1\SEAVUS.Movie.WebModels.dll
 C:\Users\Angela\Desktop\SEDC 2019-20\Cinestar\SEAVUS.Movie.Web\SEAVUS.Movie.WebModels\obj\Debug\netcoreapp2.1\SEAVUS.Movie.WebModels.pdb
+C:\Users\Angela\Desktop\SEDC 2019-20\Cinestar\SEAVUS.Movie.Web\SEAVUS.Movie.WebModels\obj\Debug\netcoreapp2.1\SEAVUS.Movie.WebModels.csprojAssemblyReference.cache

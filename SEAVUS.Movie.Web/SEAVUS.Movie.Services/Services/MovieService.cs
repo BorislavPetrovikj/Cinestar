@@ -14,12 +14,10 @@ namespace SEAVUS.Movie.Services.Services
     public class MovieService : IMovieService
     {
         private readonly IRepository<Domain.Models.Movie> _movieRepository;
-        private readonly IHostingEnvironment _hostingEnvironment;
 
-        public MovieService(IRepository<Domain.Models.Movie> movieRepository, IHostingEnvironment hostingEnvironment)
+        public MovieService(IRepository<Domain.Models.Movie> movieRepository)
         {
             _movieRepository = movieRepository;
-            _hostingEnvironment = hostingEnvironment;
         }
         public IEnumerable<MovieViewModel> GetAllMovies()
         {
@@ -177,8 +175,7 @@ namespace SEAVUS.Movie.Services.Services
                 _movieRepository.Update(movie);
             }
         }
-
-        public string UploadeImage(MovieViewModel model, IFormFile image)
+        public string UploadImage(MovieViewModel model, IFormFile image)
         {
             if(model != null)
             {

@@ -66,7 +66,7 @@ namespace SEAVUS.Movie.Web.Controllers
                 movie.Actors.Add(new MovieCastViewModel());
             }
             
-            return View(movie);
+            return View("AddOrEdit", movie);
         }
 
         [HttpPost]
@@ -76,7 +76,7 @@ namespace SEAVUS.Movie.Web.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    _movieService.UploadeImage(model, image);
+                    _movieService.UploadImage(model, image);
                     _movieService.AddNewMovie(model);
                     return RedirectToAction("MoviePanel", "Movie");
                 }
@@ -97,7 +97,7 @@ namespace SEAVUS.Movie.Web.Controllers
         {
             MovieViewModel model = _movieService.GetMovieById(id);
 
-            return View(model);
+            return View("AddOrEdit", model);
         }
 
         [HttpPost]
@@ -105,9 +105,9 @@ namespace SEAVUS.Movie.Web.Controllers
         {
             try
             {
-                if (ModelState.IsValid)
+                if (ModelState.IsValid && image != null)
                 {
-                    _movieService.UploadeImage(model, image);
+                    _movieService.UploadImage(model, image);
                     _movieService.EditMovie(model);
                     return RedirectToAction("MoviePanel", "Movie");
                 }

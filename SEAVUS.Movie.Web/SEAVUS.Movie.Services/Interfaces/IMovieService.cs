@@ -14,7 +14,6 @@ namespace SEAVUS.Movie.Services.Interfaces
         List<MovieViewModel> Delete(int id);
         void AddNewMovie(MovieViewModel movie);
         void EditMovie(MovieViewModel model);
-
-        string UploadeImage(MovieViewModel model, IFormFile image);
+        string UploadImage(MovieViewModel model, IFormFile image);
     }
 }

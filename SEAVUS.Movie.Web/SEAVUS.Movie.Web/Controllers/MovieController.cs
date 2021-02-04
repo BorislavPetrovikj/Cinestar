@@ -4,7 +4,6 @@ using SEAVUS.Movie.Services.Interfaces;
 using SEAVUS.Movie.WebModels.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 
 namespace SEAVUS.Movie.Web.Controllers
@@ -26,7 +25,7 @@ namespace SEAVUS.Movie.Web.Controllers
             return View(movies);
         }
 
-       public IActionResult Details(int id)
+        public IActionResult Details(int id)
         {
             MovieViewModel movie = _movieService.GetMovieById(id);
             return View(movie);

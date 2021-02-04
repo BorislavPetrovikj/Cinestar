@@ -51,9 +51,17 @@ namespace SEAVUS.Movie.Web.Controllers
             return RedirectToAction("MoviePanel");
         }
 
+        [HttpGet]
         public IActionResult Add()
         {
             MovieViewModel movie = new MovieViewModel();
+            movie.Actors = new List<MovieCastViewModel>();
+            int actors = 2;
+            for(int i = 0; i < actors; i++)
+            {
+                movie.Actors.Add(new MovieCastViewModel());
+            }
+            
             return View(movie);
         }
 
@@ -78,6 +86,7 @@ namespace SEAVUS.Movie.Web.Controllers
             return View(model);
         }
 
+        [HttpGet]
         public IActionResult Edit(int id)
         {
             MovieViewModel model = _movieService.GetMovieById(id);

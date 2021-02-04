@@ -8,52 +8,52 @@
     <div class="row">
         <form class="form-horizontal" asp-action="Add" asp-controller="Movie" method="post">
             <fieldset>
-                <legend class="text-center">Add Movie Info</legend>
+                <legend>Add Movie Info</legend>
                 <div class="form-group">
-                    <label class="col-md-4 control-label" asp-for="MovieTitle">Movie Title</label>
-                    <div class="col-md-5">
+                    <label class="col-md-2 control-label" asp-for="MovieTitle">Movie Title</label>
+                    <div class="col-md-4">
                         <input type="text" asp-for="MovieTitle" placeholder="movie title" class="form-control input-md" required="">
                     </div>
                     <span asp-validation-for="MovieTitle" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-4 control-label" asp-for="Director">Director</label>
-                    <div class="col-md-5">
+                    <label class="col-md-2 control-label" asp-for="Director">Director</label>
+                    <div class="col-md-4">
                         <input type="text" asp-for="Director" placeholder="director" class="form-control input-md" required="">
                     </div>
                     <span asp-validation-for="Director" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-4 control-label" asp-for="Genre">Genre</label>
-                    <div class="col-md-5">
+                    <label class="col-md-2 control-label" asp-for="Genre">Genre</label>
+                    <div class="col-md-4">
                         <input type="text" asp-for="Genre" placeholder="genre" class="form-control input-md" required="">
                     </div>
                     <span asp-validation-for="Genre" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-4 control-label" asp-for="Description">Description</label>
+                    <label class="col-md-2 control-label" asp-for="Description">Description</label>
                     <div class="col-md-4">
                         <textarea class="form-control" asp-for="Description" placeholder="This movie is about..."></textarea>
                     </div>
                     <span asp-validation-for="Description" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-4 control-label" asp-for="ReleaseDate">Release Date</label>
-                    <div class="col-md-5">
+                    <label class="col-md-2 control-label" asp-for="ReleaseDate">Release Date</label>
+                    <div class="col-md-4">
                         <input asp-for="ReleaseDate" type="datetime" placeholder="release date" class="form-control input-md" required="">
                     </div>
                     <span asp-validation-for="ReleaseDate" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-4 control-label" asp-for="Technology">Technology</label>
-                    <div class="col-md-5">
+                    <label class="col-md-2 control-label" asp-for="Technology">Technology</label>
+                    <div class="col-md-4">
                         <input asp-for="Technology" type="text" placeholder="technology" class="form-control input-md" required="">
                     </div>
                     <span asp-validation-for="Technology" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-4 control-label" asp-for="Language">Language</label>
-                    <div class="col-md-5">
+                    <label class="col-md-2 control-label" asp-for="Language">Language</label>
+                    <div class="col-md-4">
                         <select asp-for="Language" class="form-control">
                             <option selected disabled>Select Language</option>
                             <option value="English">English</option>
@@ -66,19 +66,52 @@
                     <span asp-validation-for="Description" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-4 control-label" asp-for="Image">Upload Image</label>
-                    <div class="col-md-5">
+                    <label class="col-md-2 control-label" asp-for="Image">Upload Image</label>
+                    <div class="col-md-4">
                         <input asp-for="Image" type="file" placeholder="upload image">
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="submit"></label>
-                    <div class="col-md-4">
+                <hr />
+                <h4>Add Movie Cast</h4>
+                <br />
+                @for (int i = 0; i < Model.Actors.Count; i++)
+                {
+                    <p>Actor no: @(i + 1)</p>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="input-group input-group-md">
+                                <span class="input-group-addon">@Html.LabelFor(m => m.Actors[i].FirstName)</span>
+                                @Html.TextBoxFor(x => x.Actors[i].FirstName, new { @class = "form-control" })
+                            </div>
+                            <span class="text-danger">@Html.ValidationMessageFor(m => m.Actors[i].FirstName)</span>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-group input-group-md">
+                                <span class="input-group-addon">@Html.LabelFor(m => m.Actors[i].LastName)</span>
+                                @Html.TextBoxFor(x => x.Actors[i].LastName, new { @class = "form-control" })
+                            </div>
+                            <span class="text-danger">@Html.ValidationMessageFor(m => m.Actors[i].LastName)</span>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-group input-group-md">
+                                <span class="input-group-addon">@Html.LabelFor(m => m.Actors[i].Age)</span>
+                                @Html.TextBoxFor(m => m.Actors[i].Age, new { type = "number", min = "1", max = "100" })
+                            </div>
+                            <span class="text-danger">@Html.ValidationMessageFor(m => m.Actors[i].Age)</span>
+                        </div>
+                    </div>
+                }
+                <hr />
+                <div class="form-group pull-left">
+                    <label class="col-md-12 control-label" for="submit"></label>
+                    <div class="col-md-2">
                         <button type="submit" name="submit" class="btn btn-success">Submit</button>
                     </div>
                 </div>
-                <hr />
-                <div class="form-group text-center">
+                <br />
+                <br />
+                <br />
+                <div class="form-group pull-left">
                     <a asp-action="MoviePanel" class="btn btn-secondary btn-block">Back to List</a>
                 </div>
                 <hr />

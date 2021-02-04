@@ -49,10 +49,14 @@
 </div>
 <br />
 <div class="row">
+    @{ 
+        int counter = 0;
+    }
     @foreach (var movie in Model)
     {
+        counter++;
         <div class="thumbnail col-md-3 text-center">
-            <img src="~/images/@(movie.Id).jpg" alt="Movie image" class="movieImage" />
+            <img src="~/images/@(counter).jpg" alt="Movie image" class="movieImage" />
             <div class="caption">
                 <h3>@movie.MovieTitle</h3>
                 <h4>@movie.Description</h4>

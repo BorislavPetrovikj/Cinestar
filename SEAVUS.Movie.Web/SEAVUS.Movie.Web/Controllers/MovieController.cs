@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using SEAVUS.Movie.Services.Interfaces;
 using SEAVUS.Movie.WebModels.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace SEAVUS.Movie.Web.Controllers
@@ -54,8 +56,10 @@ namespace SEAVUS.Movie.Web.Controllers
         [HttpGet]
         public IActionResult Add()
         {
-            MovieViewModel movie = new MovieViewModel();
-            movie.Actors = new List<MovieCastViewModel>();
+            MovieViewModel movie = new MovieViewModel
+            {
+                Actors = new List<MovieCastViewModel>()
+            };
             int actors = 2;
             for(int i = 0; i < actors; i++)
             {
@@ -66,15 +70,23 @@ namespace SEAVUS.Movie.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(MovieViewModel model)
+        public IActionResult Add(MovieViewModel model, IFormFile image)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    _movieService.AddNewMovie(model);
-                    return RedirectToAction("MoviePanel", "Movie");
+                    var fileName = Path.GetFileName(image.FileName);
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\", fileName);
+                    using (var fileSteam = new FileStream(filePath, FileMode.Create))
+                    {
+                        image.CopyTo(fileSteam);
+                    }
+                    model.Image = fileName;
                 }
+                _movieService.AddNewMovie(model);
+                return RedirectToAction("MoviePanel", "Movie");
+
             }
             catch (Exception ex)
             {
@@ -115,6 +127,6 @@ namespace SEAVUS.Movie.Web.Controllers
 
             return View(model);
         }
-        
+
     }
 }

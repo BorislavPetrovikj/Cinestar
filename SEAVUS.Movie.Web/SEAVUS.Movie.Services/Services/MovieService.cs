@@ -1,21 +1,25 @@
-﻿using SEAVUS.Movie.DataAccess.Interfaces;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using SEAVUS.Movie.DataAccess.Interfaces;
 using SEAVUS.Movie.Domain.Models;
 using SEAVUS.Movie.Services.Interfaces;
 using SEAVUS.Movie.WebModels.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text;
 
 namespace SEAVUS.Movie.Services.Services
 {
     public class MovieService : IMovieService
     {
         private readonly IRepository<Domain.Models.Movie> _movieRepository;
+        private readonly IHostingEnvironment _hostingEnvironment;
 
-        public MovieService(IRepository<Domain.Models.Movie> movieRepository)
+        public MovieService(IRepository<Domain.Models.Movie> movieRepository, IHostingEnvironment hostingEnvironment)
         {
             _movieRepository = movieRepository;
+            _hostingEnvironment = hostingEnvironment;
         }
         public IEnumerable<MovieViewModel> GetAllMovies()
         {
@@ -121,7 +125,7 @@ namespace SEAVUS.Movie.Services.Services
                                             MovieId = movie.Id
                                         }).ToList();
 
-                movie.Id = model.Id;
+
                 movie.Title = model.MovieTitle;
                 movie.Description = model.Description;
                 movie.Image = model.Image;
@@ -131,6 +135,7 @@ namespace SEAVUS.Movie.Services.Services
                 movie.ReleaseDate = model.ReleaseDate;
                 movie.Technology = model.Technology;
                 movie.MovieCast = movieCast;
+
 
                 _movieRepository.Insert(movie);
             }
@@ -159,7 +164,6 @@ namespace SEAVUS.Movie.Services.Services
                                             MovieId = movie.Id
                                         }).ToList();
 
-                movie.Id = model.Id;
                     movie.Title = model.MovieTitle;
                     movie.Description = model.Description;
                     movie.Image = model.Image;
@@ -173,5 +177,6 @@ namespace SEAVUS.Movie.Services.Services
                 _movieRepository.Update(movie);
             }
         }
+       
     }
 }

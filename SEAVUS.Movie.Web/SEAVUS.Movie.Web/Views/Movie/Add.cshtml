@@ -6,7 +6,7 @@
 <hr />
 <div class="container">
     <div class="row">
-        <form class="form-horizontal" asp-action="Add" asp-controller="Movie" method="post">
+        <form class="form-horizontal" asp-action="Add" asp-controller="Movie" enctype="multipart/form-data" method="post">
             <fieldset>
                 <legend>Add Movie Info</legend>
                 <div class="form-group">
@@ -68,7 +68,7 @@
                 <div class="form-group">
                     <label class="col-md-2 control-label" asp-for="Image">Upload Image</label>
                     <div class="col-md-4">
-                        <input asp-for="Image" type="file" placeholder="upload image">
+                        <input asp-for="Image" type="file" value="@Model.Image" placeholder="upload image" formenctype="multipart/form-data">
                     </div>
                 </div>
                 <hr />

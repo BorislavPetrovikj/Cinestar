@@ -5,9 +5,9 @@
 
 <h2>Details</h2>
 
-<div class="movies">
-        <div class="thumbnail">
-            <img src="~/images/@Model.Image" alt="Movie image" style="display:block" width="100" class="pull-left" />
+<div>
+        <div class="thumbnail movies-details">
+            <img src="~/images/@Model.Image" alt="Movie image" style="display:block" width="100" class="pull-left details-img" />
             <div class="caption">
                 <h3>Title: @Model.MovieTitle</h3>
                 <p> Description: @Model.Description</p>
@@ -26,7 +26,7 @@
                 </ul>
 
                 <p>
-                    <a asp-action="Index" asp-controller="Ticket" class="btn btn-primary">Buy ticket</a>
+                    <a asp-action="Index" asp-controller="Ticket" class="btn btn-primary col-md-6 ticket-btn">Buy ticket</a>
                 </p>
             </div>
         </div>

@@ -164,6 +164,11 @@ namespace SEAVUS.Movie.Services.Services
 
                     movie.Title = model.MovieTitle;
                     movie.Description = model.Description;
+
+                    if(model.Image != null)
+                    {
+                        movie.Image = model.Image;
+                    }
                     movie.Image = model.Image;
                     movie.Genre = model.Genre;
                     movie.Director = model.Director;
@@ -177,7 +182,7 @@ namespace SEAVUS.Movie.Services.Services
         }
         public string UploadImage(MovieViewModel model, IFormFile image)
         {
-            if(model != null)
+            if(model != null && image != null)
             {
                 var fileName = Path.GetFileName(image.FileName);
                 var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\", fileName);

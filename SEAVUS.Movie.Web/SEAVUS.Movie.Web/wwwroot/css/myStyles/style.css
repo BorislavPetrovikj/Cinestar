@@ -5,7 +5,7 @@
 .movieImage {
     display: block;
     width: 100% !important;
-    height: 400px !important;
+    height: 350px !important;
     border-top-left-radius: 10px !important;
     border-top-right-radius: 10px !important;
 }
@@ -24,12 +24,31 @@
     cursor:pointer;
 }
 
+.details-img {
+    width: 40%;
+}
+
+.movies-details{
+    display:flex;
+}
+
+.ticket-btn {
+    margin-left: 180px;
+    background-color: #eb315a;
+    margin-top: 200px;
+    /*margin-left:200px;*/
+}
+
 .panel-heading {
     background-color: white !important;
 }
 
 /*Buy ticket view style*/
 
+.movies-container{
+    display: flex !important;
+    flex-wrap: wrap;
+}
 
 .buy-ticket {
     height: 100%;

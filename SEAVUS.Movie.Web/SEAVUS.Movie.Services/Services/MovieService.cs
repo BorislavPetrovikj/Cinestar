@@ -177,6 +177,23 @@ namespace SEAVUS.Movie.Services.Services
                 _movieRepository.Update(movie);
             }
         }
-       
+
+        public string UploadeImage(MovieViewModel model, IFormFile image)
+        {
+            if(model != null)
+            {
+                var fileName = Path.GetFileName(image.FileName);
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\", fileName);
+                using (var fileSteam = new FileStream(filePath, FileMode.Create))
+                {
+                    image.CopyTo(fileSteam);
+                }
+                model.Image = fileName;
+
+                return fileName;
+            }
+            return String.Empty;
+
+        }
     }
 }

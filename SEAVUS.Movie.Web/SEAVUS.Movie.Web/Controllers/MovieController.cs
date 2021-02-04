@@ -76,16 +76,10 @@ namespace SEAVUS.Movie.Web.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var fileName = Path.GetFileName(image.FileName);
-                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\", fileName);
-                    using (var fileSteam = new FileStream(filePath, FileMode.Create))
-                    {
-                        image.CopyTo(fileSteam);
-                    }
-                    model.Image = fileName;
+                    _movieService.UploadeImage(model, image);
+                    _movieService.AddNewMovie(model);
+                    return RedirectToAction("MoviePanel", "Movie");
                 }
-                _movieService.AddNewMovie(model);
-                return RedirectToAction("MoviePanel", "Movie");
 
             }
             catch (Exception ex)
@@ -107,12 +101,13 @@ namespace SEAVUS.Movie.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(MovieViewModel model)
+        public IActionResult Edit(MovieViewModel model, IFormFile image)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
+                    _movieService.UploadeImage(model, image);
                     _movieService.EditMovie(model);
                     return RedirectToAction("MoviePanel", "Movie");
                 }

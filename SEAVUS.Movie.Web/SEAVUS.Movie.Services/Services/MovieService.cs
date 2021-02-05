@@ -169,7 +169,6 @@ namespace SEAVUS.Movie.Services.Services
                     {
                         movie.Image = model.Image;
                     }
-                    movie.Image = model.Image;
                     movie.Genre = model.Genre;
                     movie.Director = model.Director;
                     movie.Language = model.Language;

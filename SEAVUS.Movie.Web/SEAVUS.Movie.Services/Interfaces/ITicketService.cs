@@ -7,7 +7,7 @@ namespace SEAVUS.Movie.Services.Interfaces
 {
     public interface ITicketService
     {
-        TicketViewModel GetTicketById(int id, string userId);
+        TicketViewModel GetMovieTicketById(int id, string userId);
         int CreateReservation(TicketViewModel ticket, string userId);
 
 

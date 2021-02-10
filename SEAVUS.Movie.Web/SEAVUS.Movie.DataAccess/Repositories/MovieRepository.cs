@@ -24,7 +24,7 @@ namespace SEAVUS.Movie.DataAccess.Repositories
 
         public IEnumerable<Domain.Models.Movie> GetAll()
         {
-            // add include statemants
+
             IEnumerable<Domain.Models.Movie> movies = _db.Movies
                                                       .Include(x => x.MovieCast)
                                                       .ThenInclude(x => x.Actor)
@@ -35,7 +35,6 @@ namespace SEAVUS.Movie.DataAccess.Repositories
 
         public Domain.Models.Movie GetById(int id)
         {
-            // add include statemants
             Domain.Models.Movie movie = _db.Movies
                                         .Include(x=>x.MovieCast)
                                         .ThenInclude(x=>x.Actor)

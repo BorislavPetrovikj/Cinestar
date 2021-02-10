@@ -373,6 +373,8 @@ namespace SEAVUS.Movie.DataAccess
                             Available = 1,
                             Type = "Standard"
                         });
+         
+                       
 
         }
 

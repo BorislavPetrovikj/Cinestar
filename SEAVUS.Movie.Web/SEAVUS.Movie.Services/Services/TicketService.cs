@@ -25,7 +25,7 @@ namespace SEAVUS.Movie.Services.Services
             throw new NotImplementedException();
 
         }
-        public TicketViewModel GetTicketById(int id, string userId)
+        public TicketViewModel GetMovieTicketById(int id, string userId)
         {
             throw new NotImplementedException();
         }

@@ -8,12 +8,13 @@ namespace SEAVUS.Movie.Services.Interfaces
 {
     public interface IMovieService
     {
-        IEnumerable<MovieViewModel> GetAllMovies();
+        List<MovieViewModel> GetAllMovies();
         MovieViewModel GetMovieById(int id);
         List<MovieViewModel> SearchMovies(string searchTerm);
         List<MovieViewModel> Delete(int id);
         void AddNewMovie(MovieViewModel movie);
         void EditMovie(MovieViewModel model);
+        List<ShowViewModel> GetMovieShows(int id);
         string UploadImage(MovieViewModel model, IFormFile image);
     }
 }

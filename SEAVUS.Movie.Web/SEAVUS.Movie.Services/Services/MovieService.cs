@@ -22,7 +22,7 @@ namespace SEAVUS.Movie.Services.Services
             _movieRepository = movieRepository;
             _actorRepository = actorRepository;
         }
-        public IEnumerable<MovieViewModel> GetAllMovies()
+        public List<MovieViewModel> GetAllMovies()
         {
             List<Domain.Models.Movie> movies = _movieRepository.GetAll().ToList();
 
@@ -150,7 +150,6 @@ namespace SEAVUS.Movie.Services.Services
 
                 List<Actor> movieActors = movie.MovieCast.Select(x => x.Actor).ToList();
 
-
                 // try solving it with linq
                 //var actors = from a in _actorRepository.GetAll().Where(x => x.Id.Equals(movie.MovieCast.Select(y => y.ActorId)))
                 //             select new Actor
@@ -160,14 +159,6 @@ namespace SEAVUS.Movie.Services.Services
                 //                 Age = a.Age
                 //             };
 
-                //var movieCast = (from m in movie.MovieCast.Where(m => actors.Select(c => c.Id).Contains(m.Id))
-                //                select new Cast
-                //                {
-                //                    ActorId = m.ActorId,
-                //                    MovieId = m.MovieId,
-                //                }).ToList();
-
-
                 foreach (var modelActor in model.Actors)
                 {
                     foreach (var domainActor in movieActors)
@@ -176,18 +167,6 @@ namespace SEAVUS.Movie.Services.Services
                         domainActor.LastName = modelActor.LastName;
                         domainActor.Age = modelActor.Age;
                     }
-                }
-
-                foreach (var cast in movie.MovieCast)
-                {
-                    foreach (var actor in movieActors)
-                    {
-                        cast.Actor = actor;
-                        cast.Movie = movie;
-                        cast.MovieId = movie.Id;
-                        cast.ActorId = actor.Id;
-
-                    };
                 }
 
                 movie.Title = model.MovieTitle;
@@ -205,6 +184,22 @@ namespace SEAVUS.Movie.Services.Services
 
                 _movieRepository.Update(movie);
             }
+        }
+        public List<ShowViewModel> GetMovieShows(int id)
+        {
+            Domain.Models.Movie movie = _movieRepository.GetById(id);
+
+            List<ShowViewModel> movieShows = (from m in movie.Shows
+                                              select new ShowViewModel
+                                              {
+                                                  Id = m.Id,
+                                                  MovieTitle = m.Movie.Title,
+                                                  HallTitle = m.Hall.Name,
+                                                  EndDate = m.EndDate,
+                                                  ShowTime = m.ShowTime
+
+                                              }).ToList();
+            return movieShows;
         }
         public string UploadImage(MovieViewModel model, IFormFile image)
         {

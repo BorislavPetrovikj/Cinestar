@@ -39,7 +39,7 @@
                 <div class="form-group">
                     <label class="col-md-2 control-label" asp-for="ReleaseDate">Release Date</label>
                     <div class="col-md-5">
-                        <input asp-for="ReleaseDate" type="datetime" placeholder="release date" class="form-control input-md" required="">
+                        <input asp-for="ReleaseDate" asp-format="{0:dd/MM/yyyy}" type="datetime" placeholder="release date" class="form-control input-md" required="">
                     </div>
                     <span asp-validation-for="ReleaseDate" class="text-danger"></span>
                 </div>

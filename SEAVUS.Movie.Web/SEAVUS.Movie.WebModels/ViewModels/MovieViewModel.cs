@@ -21,6 +21,7 @@ namespace SEAVUS.Movie.WebModels.ViewModels
         public string Director { get; set; }
         [Required(ErrorMessage = "This field is required!")]
         [Display(Name = "Release Date")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime ReleaseDate { get; set; }
         [Required(ErrorMessage = "This field is required!")]
         public string Technology { get; set; }

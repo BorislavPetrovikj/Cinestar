@@ -74,7 +74,7 @@ using SEAVUS.Movie.WebModels.ViewModels;
             WriteLiteral("\r\n<h2>Details</h2>\r\n\r\n<div>\r\n        <div class=\"thumbnail movies-details\">\r\n            ");
             EndContext();
             BeginContext(155, 117, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "337c0b4ca8ef4ca8b92049056cfe3dfa", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "d1f582f4ebca47dcb16a36b74bb62eb6", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -210,7 +210,7 @@ AddHtmlAttributeValue("", 174, Model.Image, 174, 12, false);
             WriteLiteral("                </ul>\r\n\r\n                <span class= \"col-md-2\">\r\n                    ");
             EndContext();
             BeginContext(1007, 120, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe82230089274590823f621e18d4dbbe", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "976bd25329544fc79c28476150da59b8", async() => {
                 BeginContext(1113, 10, true);
                 WriteLiteral("Buy ticket");
                 EndContext();
@@ -248,7 +248,7 @@ AddHtmlAttributeValue("", 174, Model.Image, 174, 12, false);
             WriteLiteral("\r\n                </span>\r\n                <span class=\"col-md-2\">\r\n                    ");
             EndContext();
             BeginContext(1215, 126, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "49ecc95b59ec4610886acbe337c3da6a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "48e8fa33f9ab4590b599b2d1f5715b0f", async() => {
                 BeginContext(1319, 18, true);
                 WriteLiteral("Make a reservation");
                 EndContext();

@@ -38,6 +38,8 @@ namespace SEAVUS.Movie.DataAccess.Repositories
             Domain.Models.Movie movie = _db.Movies
                                         .Include(x=>x.MovieCast)
                                         .ThenInclude(x=>x.Actor)
+                                        .Include(x=>x.Shows)
+                                        .ThenInclude(x=>x.Movie)
                                         .SingleOrDefault(x => x.Id == id);
 
 

@@ -6,3 +6,4 @@ C:\Users\Angela\Desktop\SEDC 2019-20\Cinestar\SEAVUS.Movie.Web\SEAVUS.Movie.Doma
 C:\Users\Angela\Desktop\SEDC 2019-20\Cinestar\SEAVUS.Movie.Web\SEAVUS.Movie.Domain\obj\Debug\netcoreapp2.1\SEAVUS.Movie.Domain.csproj.CoreCompileInputs.cache
 C:\Users\Angela\Desktop\SEDC 2019-20\Cinestar\SEAVUS.Movie.Web\SEAVUS.Movie.Domain\obj\Debug\netcoreapp2.1\SEAVUS.Movie.Domain.dll
 C:\Users\Angela\Desktop\SEDC 2019-20\Cinestar\SEAVUS.Movie.Web\SEAVUS.Movie.Domain\obj\Debug\netcoreapp2.1\SEAVUS.Movie.Domain.pdb
+C:\Users\Angela\Desktop\SEDC 2019-20\Cinestar\SEAVUS.Movie.Web\SEAVUS.Movie.Domain\obj\Debug\netcoreapp2.1\SEAVUS.Movie.Domain.csprojAssemblyReference.cache

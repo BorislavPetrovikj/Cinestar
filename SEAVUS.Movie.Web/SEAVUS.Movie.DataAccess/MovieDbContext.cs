@@ -260,7 +260,7 @@ namespace SEAVUS.Movie.DataAccess
                              HallId = 1,
                              StartDate = DateTime.Parse("2020-09-10"),
                              EndDate = DateTime.Parse("2020-09-30"),
-                             ShowTime = DateTime.Now.ToLocalTime()
+                             ShowTime = DateTime.Parse("2020-09-10").AddHours(1)
                          },
                          new Show()
                          {
@@ -269,7 +269,34 @@ namespace SEAVUS.Movie.DataAccess
                              HallId = 1,
                              StartDate = DateTime.Parse("2020-02-10"),
                              EndDate = DateTime.Parse("2020-03-02"),
-                             ShowTime = DateTime.Now.AddDays(2).ToLocalTime()
+                             ShowTime = DateTime.Parse("2020-02-10").AddHours(2)
+                         },
+                         new Show()
+                         {
+                             Id = 3,
+                             MovieId = 3,
+                             HallId = 1,
+                             StartDate = DateTime.Parse("2020-01-01"),
+                             EndDate = DateTime.Parse("2020-02-02"),
+                             ShowTime = DateTime.Parse("20-01-01").AddHours(4)
+                         },
+                         new Show()
+                         {
+                             Id = 4,
+                             MovieId = 4,
+                             HallId = 1,
+                             StartDate = DateTime.Parse("2019-06-05"),
+                             EndDate = DateTime.Parse("2019-07-10"),
+                             ShowTime = DateTime.Parse("2019-06-05").AddHours(3)
+                         },
+                         new Show()
+                         {
+                             Id = 5,
+                             MovieId = 5,
+                             HallId = 1,
+                             StartDate = DateTime.Parse("2019-10-01"),
+                             EndDate = DateTime.Parse("2019-11-10"),
+                             ShowTime = DateTime.Parse("2019-10-01").AddHours(3)
                          });
             modelBuilder.Entity<Seat>()
                        .HasData(

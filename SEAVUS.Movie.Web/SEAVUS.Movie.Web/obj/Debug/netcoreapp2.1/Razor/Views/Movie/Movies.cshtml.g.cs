@@ -72,7 +72,7 @@ using SEAVUS.Movie.WebModels.ViewModels;
             WriteLiteral("\r\n<h1>Movies</h1>\r\n<div class=\"container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-12\">\r\n            <nav>\r\n                <div class=\"nav nav-justified navbar-nav\">\r\n                    ");
             EndContext();
             BeginContext(270, 1907, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe90abf96c7f4b9b99e904c4dc99868f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f83392613e17405dbd3c628f38a256fe", async() => {
                 BeginContext(290, 1508, true);
                 WriteLiteral(@"
                         <div class=""input-group"">
@@ -146,7 +146,7 @@ WriteAttributeValue("", 1806, ViewData["Search"], 1806, 19, false);
             WriteLiteral("        <div class=\"thumbnail col-md-3 text-center\">\r\n            ");
             EndContext();
             BeginContext(2415, 72, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "e42ae34613ee4214ad36721ef3afaa7a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "938ebe4c942a4e469e3399aa3bcd8e9e", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -203,7 +203,7 @@ AddHtmlAttributeValue("", 2434, movie.Image, 2434, 12, false);
             WriteLiteral("</h5>\r\n                <p>\r\n                    ");
             EndContext();
             BeginContext(2693, 84, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5564015d50f543cc8be90c658f0b70f7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ca9aa5bd47e9418f87519b97d7627075", async() => {
                 BeginContext(2766, 7, true);
                 WriteLiteral("Details");
                 EndContext();

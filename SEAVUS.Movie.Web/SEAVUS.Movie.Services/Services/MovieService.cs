@@ -48,7 +48,8 @@ namespace SEAVUS.Movie.Services.Services
                                                    {
                                                        Id = a.Id,
                                                        FirstName = a.FirstName,
-                                                       LastName = a.LastName
+                                                       LastName = a.LastName,
+                                                       Age = a.Age.Value
                                                    }).ToList();
             if (movie != null)
             {
@@ -144,8 +145,8 @@ namespace SEAVUS.Movie.Services.Services
             {
                 Domain.Models.Movie movie = _movieRepository.GetAll().Where(x => x.Id == model.Id).SingleOrDefault();
 
+
                 List<Actor> actors = (from a in model.Actors
-                                      where a.Id == model.Id
                                       select new Actor
                                       {
                                           Id = a.Id,
@@ -155,12 +156,10 @@ namespace SEAVUS.Movie.Services.Services
                                       }).ToList();
 
                 List<Cast> movieCast = (from a in actors
-                                        where a.Id == model.Id
                                         select new Cast
                                         {
-                                            Actor = a,
+                                            Id = a.Id,
                                             ActorId = a.Id,
-                                            Movie = movie,
                                             MovieId = movie.Id
                                         }).ToList();
 

@@ -15,9 +15,12 @@ namespace SEAVUS.Movie.Services.Services
     {
         private readonly IRepository<Domain.Models.Movie> _movieRepository;
 
-        public MovieService(IRepository<Domain.Models.Movie> movieRepository)
+        private readonly IRepository<Actor> _actorRepository;
+
+        public MovieService(IRepository<Domain.Models.Movie> movieRepository, IRepository<Actor> actorRepository)
         {
             _movieRepository = movieRepository;
+            _actorRepository = actorRepository;
         }
         public IEnumerable<MovieViewModel> GetAllMovies()
         {
@@ -147,19 +150,37 @@ namespace SEAVUS.Movie.Services.Services
 
                 List<Actor> movieActors = movie.MovieCast.Select(x => x.Actor).ToList();
 
-                foreach (var a in model.Actors)
+
+                // try solving it with linq
+                //var actors = from a in _actorRepository.GetAll().Where(x => x.Id.Equals(movie.MovieCast.Select(y => y.ActorId)))
+                //             select new Actor
+                //             {
+                //                 FirstName = a.FirstName,
+                //                 LastName = a.LastName,
+                //                 Age = a.Age
+                //             };
+
+                //var movieCast = (from m in movie.MovieCast.Where(m => actors.Select(c => c.Id).Contains(m.Id))
+                //                select new Cast
+                //                {
+                //                    ActorId = m.ActorId,
+                //                    MovieId = m.MovieId,
+                //                }).ToList();
+
+
+                foreach (var modelActor in model.Actors)
                 {
-                    foreach (var ac in movieActors)
+                    foreach (var domainActor in movieActors)
                     {
-                        ac.FirstName = a.FirstName;
-                        ac.LastName = a.LastName;
-                        ac.Age = a.Age;
+                        domainActor.FirstName = modelActor.FirstName;
+                        domainActor.LastName = modelActor.LastName;
+                        domainActor.Age = modelActor.Age;
                     }
                 }
 
                 foreach (var cast in movie.MovieCast)
                 {
-                    foreach(var actor in movieActors)
+                    foreach (var actor in movieActors)
                     {
                         cast.Actor = actor;
                         cast.Movie = movie;
@@ -169,18 +190,18 @@ namespace SEAVUS.Movie.Services.Services
                     };
                 }
 
-                    movie.Title = model.MovieTitle;
-                    movie.Description = model.Description;
+                movie.Title = model.MovieTitle;
+                movie.Description = model.Description;
 
-                    if(model.Image != null)
-                    {
-                        movie.Image = model.Image;
-                    }
-                    movie.Genre = model.Genre;
-                    movie.Director = model.Director;
-                    movie.Language = model.Language;
-                    movie.ReleaseDate = model.ReleaseDate;
-                    movie.Technology = model.Technology;
+                if (model.Image != null)
+                {
+                    movie.Image = model.Image;
+                }
+                movie.Genre = model.Genre;
+                movie.Director = model.Director;
+                movie.Language = model.Language;
+                movie.ReleaseDate = model.ReleaseDate;
+                movie.Technology = model.Technology;
 
                 _movieRepository.Update(movie);
             }

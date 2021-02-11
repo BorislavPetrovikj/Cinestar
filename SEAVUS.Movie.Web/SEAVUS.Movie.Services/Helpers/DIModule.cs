@@ -38,6 +38,7 @@ namespace SEAVUS.Movie.Services.Helpers
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IMovieService, MovieService>();
             services.AddTransient<ITicketService, TicketService>();
+            services.AddTransient<IRepository<Actor>, ActorRepository>();
 
             return services;
         }

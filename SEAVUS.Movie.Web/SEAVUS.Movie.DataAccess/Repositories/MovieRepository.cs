@@ -26,10 +26,10 @@ namespace SEAVUS.Movie.DataAccess.Repositories
         {
 
             IEnumerable<Domain.Models.Movie> movies = _db.Movies
-                                                      .Include(x => x.MovieCast)
-                                                      .ThenInclude(x => x.Actor)
-                                                      .Include(x => x.Shows)
-                                                      .ThenInclude(x => x.Movie);
+                                                          .Include(x => x.MovieCast)
+                                                          .ThenInclude(x => x.Actor)
+                                                          .Include(x => x.Shows)
+                                                          .ThenInclude(x => x.Movie);
             return movies;
         }
 

@@ -145,23 +145,29 @@ namespace SEAVUS.Movie.Services.Services
             {
                 Domain.Models.Movie movie = _movieRepository.GetAll().Where(x => x.Id == model.Id).SingleOrDefault();
 
+                List<Actor> movieActors = movie.MovieCast.Select(x => x.Actor).ToList();
 
-                List<Actor> actors = (from a in model.Actors
-                                      select new Actor
-                                      {
-                                          Id = a.Id,
-                                          FirstName = a.FirstName,
-                                          LastName = a.LastName,
-                                          Age = a.Age
-                                      }).ToList();
+                foreach (var a in model.Actors)
+                {
+                    foreach (var ac in movieActors)
+                    {
+                        ac.FirstName = a.FirstName;
+                        ac.LastName = a.LastName;
+                        ac.Age = a.Age;
+                    }
+                }
 
-                List<Cast> movieCast = (from a in actors
-                                        select new Cast
-                                        {
-                                            Id = a.Id,
-                                            ActorId = a.Id,
-                                            MovieId = movie.Id
-                                        }).ToList();
+                foreach (var cast in movie.MovieCast)
+                {
+                    foreach(var actor in movieActors)
+                    {
+                        cast.Actor = actor;
+                        cast.Movie = movie;
+                        cast.MovieId = movie.Id;
+                        cast.ActorId = actor.Id;
+
+                    };
+                }
 
                     movie.Title = model.MovieTitle;
                     movie.Description = model.Description;
@@ -175,7 +181,6 @@ namespace SEAVUS.Movie.Services.Services
                     movie.Language = model.Language;
                     movie.ReleaseDate = model.ReleaseDate;
                     movie.Technology = model.Technology;
-                    movie.MovieCast = movieCast;
 
                 _movieRepository.Update(movie);
             }

@@ -125,5 +125,12 @@ namespace SEAVUS.Movie.Web.Controllers
             return View(model);
         }
 
+        [HttpGet]
+        public IActionResult Shows(int id)
+        {
+            List<ShowViewModel> shows = _movieService.GetMovieShows(id);
+
+            return View(shows);
+        }
     }
 }

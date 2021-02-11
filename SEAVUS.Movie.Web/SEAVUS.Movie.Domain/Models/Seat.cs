@@ -17,7 +17,6 @@ namespace SEAVUS.Movie.Domain.Models
         public int RowNumber { get; set; }
         public sbyte Available { get; set; }
         public string Type { get; set; }
-
         public Hall Hall { get; set; }
         public ICollection<Reservation> Reservations { get; set; }
         public ICollection<Ticket> Tickets { get; set; }

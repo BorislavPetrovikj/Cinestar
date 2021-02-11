@@ -1,0 +1,15 @@
+﻿@model List<ShowViewModel>
+@{
+    ViewData["Title"] = "Shows";
+}
+
+<h2>Shows</h2>
+@foreach (var show in Model)
+{
+    <p>@show.MovieTitle</p>
+    <p>@show.ShowTime</p>
+    <p>@show.EndDate</p>
+    <p>@show.StartDate</p>
+}
+
+

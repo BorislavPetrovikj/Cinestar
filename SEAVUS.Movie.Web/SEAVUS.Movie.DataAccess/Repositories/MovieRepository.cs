@@ -39,9 +39,10 @@ namespace SEAVUS.Movie.DataAccess.Repositories
                                         .Include(x=>x.MovieCast)
                                         .ThenInclude(x=>x.Actor)
                                         .Include(x=>x.Shows)
+                                        .ThenInclude(x=>x.Hall)
+                                        .Include(x=>x.Shows)
                                         .ThenInclude(x=>x.Movie)
                                         .SingleOrDefault(x => x.Id == id);
-
 
             return movie;
         }

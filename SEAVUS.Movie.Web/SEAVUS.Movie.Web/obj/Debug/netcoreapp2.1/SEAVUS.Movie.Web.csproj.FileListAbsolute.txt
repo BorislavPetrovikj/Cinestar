@@ -50,3 +50,4 @@ C:\Users\Angela\Desktop\SEDC 2019-20\Cinestar\SEAVUS.Movie.Web\SEAVUS.Movie.Web\
 C:\Users\Angela\Desktop\SEDC 2019-20\Cinestar\SEAVUS.Movie.Web\SEAVUS.Movie.Web\obj\Debug\netcoreapp2.1\SEAVUS.Movie.Web.genruntimeconfig.cache
 C:\Users\Angela\Desktop\SEDC 2019-20\Cinestar\SEAVUS.Movie.Web\SEAVUS.Movie.Web\obj\Debug\netcoreapp2.1\Razor\Views\Movie\Add.cshtml.g.cs
 C:\Users\Angela\Desktop\SEDC 2019-20\Cinestar\SEAVUS.Movie.Web\SEAVUS.Movie.Web\obj\Debug\netcoreapp2.1\Razor\Views\Movie\Edit.cshtml.g.cs
+C:\Users\Angela\Desktop\SEDC 2019-20\Cinestar\SEAVUS.Movie.Web\SEAVUS.Movie.Web\obj\Debug\netcoreapp2.1\Razor\Views\Movie\Shows.cshtml.g.cs

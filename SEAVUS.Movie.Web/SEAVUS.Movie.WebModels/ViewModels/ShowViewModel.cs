@@ -12,5 +12,6 @@ namespace SEAVUS.Movie.WebModels.ViewModels
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public DateTime ShowTime { get; set; }
+        public List<SeatViewModel> Seats { get; set; }
     }
 }

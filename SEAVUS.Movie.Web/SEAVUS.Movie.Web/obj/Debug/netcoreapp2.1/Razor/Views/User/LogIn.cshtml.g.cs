@@ -90,12 +90,12 @@ using SEAVUS.Movie.WebModels.ViewModels;
                 ");
             EndContext();
             BeginContext(694, 1922, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e31c0c8d373d40389831ef97ae82e1ff", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d2423eb19be34d40b69bb56c43716c16", async() => {
                 BeginContext(806, 206, true);
                 WriteLiteral("\r\n                    <div style=\"margin-bottom: 25px\" class=\"input-group\">\r\n                        <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-user\"></i></span>\r\n                        ");
                 EndContext();
                 BeginContext(1012, 79, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "5da71775d8644876b59f39cf8e839273", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "02a2bd45d16f410c992273772f04473d", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -122,7 +122,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                 WriteLiteral("\r\n                    </div>\r\n                    <div style=\"margin-bottom: 25px\" class=\"input-group\">\r\n                        <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-lock\"></i></span>\r\n                        ");
                 EndContext();
                 BeginContext(1325, 83, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "14f930ed34cb4361b4cf297f988fa8f2", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "f4bd484f0202436ba90dc0249368d6f8", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -168,7 +168,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                                 Don't have an account? ");
                 EndContext();
                 BeginContext(2429, 66, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0d1d4804735b434e889befb45a29fb8e", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d61b717db96444289d3481dc61ea0ad8", async() => {
                     BeginContext(2476, 15, true);
                     WriteLiteral(" Register here ");
                     EndContext();

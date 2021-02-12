@@ -40,6 +40,7 @@ namespace SEAVUS.Movie.DataAccess.Repositories
                                         .ThenInclude(x=>x.Actor)
                                         .Include(x=>x.Shows)
                                         .ThenInclude(x=>x.Hall)
+                                        .ThenInclude(x=>x.Seats)
                                         .Include(x=>x.Shows)
                                         .ThenInclude(x=>x.Movie)
                                         .SingleOrDefault(x => x.Id == id);

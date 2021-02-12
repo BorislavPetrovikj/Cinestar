@@ -111,7 +111,7 @@ using SEAVUS.Movie.WebModels.ViewModels;
             WriteLiteral("\r\n                </th>\r\n                <th>\r\n                    ");
             EndContext();
             BeginContext(662, 85, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "eae0e965859d4744b470b09eb5d0c4c0", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3eb22b88f1f2455ebe0b8729b217f2d6", async() => {
                 BeginContext(706, 37, true);
                 WriteLiteral("<i class=\"far fa-plus-square\"></i>Add");
                 EndContext();
@@ -183,7 +183,7 @@ using SEAVUS.Movie.WebModels.ViewModels;
             WriteLiteral("\r\n    </td>\r\n    <td>\r\n        ");
             EndContext();
             BeginContext(1195, 89, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d73c5181b1964e5c9f306b3cee88b28f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "47974dd91da744b880ab64491d6474df", async() => {
                 BeginContext(1240, 40, true);
                 WriteLiteral("<i class=\"glyphicon glyphicon-edit\"></i>");
                 EndContext();
@@ -218,7 +218,7 @@ using SEAVUS.Movie.WebModels.ViewModels;
             WriteLiteral("\r\n        ");
             EndContext();
             BeginContext(1294, 164, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3428065366a74ed5985d3be16d3f374d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "81e9103448b04bf19cc8f1ea5931b0a1", async() => {
                 BeginContext(1413, 41, true);
                 WriteLiteral("<i class=\"glyphicon glyphicon-trash\"></i>");
                 EndContext();
@@ -254,7 +254,7 @@ using SEAVUS.Movie.WebModels.ViewModels;
             WriteLiteral("\r\n        ");
             EndContext();
             BeginContext(1468, 79, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "eff399919a924fecbdf746fbddaf8158", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f06c09d989134a68aac626d1ef83e804", async() => {
                 BeginContext(1525, 15, false);
 #line 49 "C:\Users\Angela\Desktop\SEDC 2019-20\Cinestar\SEAVUS.Movie.Web\SEAVUS.Movie.Web\Views\Movie\MoviePanel.cshtml"
                                                            Write(ViewBag.Message);

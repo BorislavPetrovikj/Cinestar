@@ -14,7 +14,7 @@ namespace SEAVUS.Movie.Domain.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Type { get; set; }
-        public ICollection<Show> Shows { get; set; }
-        public ICollection<Seat> Seats { get; set; }
+        public List<Show> Shows { get; set; }
+        public List<Seat> Seats { get; set; }
     }
 }

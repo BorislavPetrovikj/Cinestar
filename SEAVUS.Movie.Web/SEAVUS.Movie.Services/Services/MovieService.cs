@@ -14,13 +14,12 @@ namespace SEAVUS.Movie.Services.Services
     public class MovieService : IMovieService
     {
         private readonly IRepository<Domain.Models.Movie> _movieRepository;
+        private readonly IActorService _actorService;
 
-        private readonly IRepository<Actor> _actorRepository;
-
-        public MovieService(IRepository<Domain.Models.Movie> movieRepository, IRepository<Actor> actorRepository)
+        public MovieService(IRepository<Domain.Models.Movie> movieRepository, IActorService actorService)
         {
             _movieRepository = movieRepository;
-            _actorRepository = actorRepository;
+            _actorService = actorService;
         }
         public List<MovieViewModel> GetAllMovies()
         {
@@ -67,7 +66,9 @@ namespace SEAVUS.Movie.Services.Services
                     Language = movie.Language,
                     ReleaseDate = movie.ReleaseDate,
                     Technology = movie.Technology,
-                    Actors = actorsList
+                    Actors = actorsList,
+                    Shows = GetMovieShows(movie.Id)
+                    
                 };
 
                 return model;
@@ -151,23 +152,16 @@ namespace SEAVUS.Movie.Services.Services
                 List<Actor> movieActors = movie.MovieCast.Select(x => x.Actor).ToList();
 
                 // try solving it with linq
-                //var actors = from a in _actorRepository.GetAll().Where(x => x.Id.Equals(movie.MovieCast.Select(y => y.ActorId)))
-                //             select new Actor
-                //             {
-                //                 FirstName = a.FirstName,
-                //                 LastName = a.LastName,
-                //                 Age = a.Age
-                //             };
-
-                foreach (var modelActor in model.Actors)
-                {
-                    foreach (var domainActor in movieActors)
-                    {
-                        domainActor.FirstName = modelActor.FirstName;
-                        domainActor.LastName = modelActor.LastName;
-                        domainActor.Age = modelActor.Age;
-                    }
-                }
+                List<Actor> actors = (from a in model.Actors
+                                      where _actorService.GetAllActors().Select(x=>x.Id).Any(y=> y.Equals(a.Id))
+                                      select new Actor
+                                      {
+                                          Id = a.Id,
+                                          FirstName = a.FirstName,
+                                          LastName = a.LastName,
+                                          Age = a.Age,
+                                          MovieCast = movie.MovieCast
+                                      }).ToList();
 
                 movie.Title = model.MovieTitle;
                 movie.Description = model.Description;
@@ -183,34 +177,38 @@ namespace SEAVUS.Movie.Services.Services
                 movie.Technology = model.Technology;
 
                 _movieRepository.Update(movie);
+                //_actorService.UpdateActors(actors);
+                
+                
             }
         }
         public List<ShowViewModel> GetMovieShows(int id)
         {
             Domain.Models.Movie movie = _movieRepository.GetById(id);
 
-            var movieHallSeats = movie.Shows.Select(x => x.Hall).SingleOrDefault().Seats;
+            //var movieHallSeats = movie.Shows.Select(x => x.Hall).SingleOrDefault().Seats;
 
-            List<SeatViewModel> movieSeats = (from s in movieHallSeats
-                                              select new SeatViewModel
-                                                   {
-                                                      SeatNumber = s.SeatNumber,
-                                                      Available = s.Available,
-                                                      RowNumber = s.RowNumber,
-                                                      Price = s.Price,
-                                                      Type = s.Type,
-                                                   }).ToList();
+            //List<SeatViewModel> movieSeats = (from s in movieHallSeats
+            //                                  select new SeatViewModel
+            //                                  {
+            //                                      SeatNumber = s.SeatNumber,
+            //                                      Available = s.Available,
+            //                                      RowNumber = s.RowNumber,
+            //                                      Price = s.Price,
+            //                                      Type = s.Type,
+            //                                  }).ToList();
 
             List<ShowViewModel> movieShows = (from m in movie.Shows
                                               select new ShowViewModel
                                               {
                                                   Id = m.Id,
                                                   MovieTitle = m.Movie.Title,
+                                                  HallId = m.Hall.Id,
                                                   HallTitle = m.Hall.Name,
                                                   StartDate = m.StartDate,
                                                   EndDate = m.EndDate,
                                                   ShowTime = m.ShowTime,
-                                                  Seats = movieSeats
+                                                  //Seats = movieSeats
 
                                               }).ToList();
             return movieShows;

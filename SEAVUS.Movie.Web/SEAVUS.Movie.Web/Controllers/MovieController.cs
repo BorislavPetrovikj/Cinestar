@@ -117,7 +117,6 @@ namespace SEAVUS.Movie.Web.Controllers
             catch (Exception ex)
             {
                 string message = ex.Message;
-
                 ViewBag.Message = message;
             }
            

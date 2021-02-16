@@ -32,12 +32,14 @@ namespace SEAVUS.Movie.Services.Helpers
 
             services.AddTransient<IRepository<Domain.Models.Movie>, MovieRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IRepository<Actor>, ActorRepository>();
 
             services.AddTransient<IRepository<Ticket>, TicketRepository>();
 
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IMovieService, MovieService>();
-            services.AddTransient<IRepository<Actor>, ActorRepository>();
+            services.AddTransient<IActorService, ActorService>();
+           
 
             return services;
         }

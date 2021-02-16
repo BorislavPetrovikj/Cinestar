@@ -21,22 +21,19 @@
     border-radius: 12px;
     border: none !important;
     font-family: 'Alegreya Sans', sans-serif;
-    cursor:pointer;
 }
 
 .details-img {
     width: 40%;
 }
 
-.movies-details{
-    display:flex;
+.movies-details {
+    display: flex;
+    height: 650px !important;
 }
 
 .ticket-btn {
-    margin-left: 180px;
-    background-color: #eb315a;
-    margin-top: 200px;
-    /*margin-left:200px;*/
+    margin-top: 50px;
 }
 
 .panel-heading {

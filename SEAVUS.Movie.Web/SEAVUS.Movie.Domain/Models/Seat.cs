@@ -14,7 +14,7 @@ namespace SEAVUS.Movie.Domain.Models
         public int HallId { get; set; }
         public decimal Price { get; set; }
         public int SeatNumber { get; set; }
-        public int RowNumber { get; set; }
+        public string RowNumber { get; set; }
         public sbyte Available { get; set; }
         public string Type { get; set; }
         public Hall Hall { get; set; }

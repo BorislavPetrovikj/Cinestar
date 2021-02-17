@@ -14,12 +14,12 @@ namespace SEAVUS.Movie.Services.Services
     public class MovieService : IMovieService
     {
         private readonly IRepository<Domain.Models.Movie> _movieRepository;
-        private readonly IActorService _actorService;
+        private readonly IRepository<Actor> _actorRepository;
 
-        public MovieService(IRepository<Domain.Models.Movie> movieRepository, IActorService actorService)
+        public MovieService(IRepository<Domain.Models.Movie> movieRepository, IRepository<Actor> actorRepository)
         {
             _movieRepository = movieRepository;
-            _actorService = actorService;
+            _actorRepository = actorRepository;
         }
         public List<MovieViewModel> GetAllMovies()
         {
@@ -149,11 +149,12 @@ namespace SEAVUS.Movie.Services.Services
             {
                 Domain.Models.Movie movie = _movieRepository.GetAll().Where(x => x.Id == model.Id).SingleOrDefault();
 
-                List<Actor> movieActors = movie.MovieCast.Select(x => x.Actor).ToList();
+                // Find the domain models that have the same id as the view models
 
-                // try solving it with linq
+                // Update the domain model with the values of the view models
+
                 List<Actor> actors = (from a in model.Actors
-                                      where _actorService.GetAllActors().Select(x=>x.Id).Any(y=> y.Equals(a.Id))
+                                      where _actorRepository.GetAll().Select(x => x.Id).Any(y => y.Equals(a.Id))
                                       select new Actor
                                       {
                                           Id = a.Id,
@@ -162,6 +163,13 @@ namespace SEAVUS.Movie.Services.Services
                                           Age = a.Age,
                                           MovieCast = movie.MovieCast
                                       }).ToList();
+
+                //List<Actor> movieActors = movie.MovieCast.Select(x => x.Actor).ToList();
+
+                //var actors = (from a in model.Actors
+                //              select _actorRepository.GetAll()
+                //              .Where(x => x.Id.Equals(a.Id))
+                //              .ToList());
 
                 movie.Title = model.MovieTitle;
                 movie.Description = model.Description;

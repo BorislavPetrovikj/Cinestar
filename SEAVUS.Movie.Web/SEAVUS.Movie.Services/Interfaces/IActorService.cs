@@ -10,5 +10,6 @@ namespace SEAVUS.Movie.Services.Interfaces
     {
         List<MovieCastViewModel> GetAllActors();
         MovieCastViewModel GetActorById(int id);
+        void UpdateActors(Actor actor, MovieViewModel model);
     }
 }

@@ -15,9 +15,12 @@ namespace SEAVUS.Movie.Services.Services
     {
         private readonly IRepository<Domain.Models.Movie> _movieRepository;
 
-        public MovieService(IRepository<Domain.Models.Movie> movieRepository)
+        private readonly IActorService _actorService;
+
+        public MovieService(IRepository<Domain.Models.Movie> movieRepository, IActorService actorService)
         {
             _movieRepository = movieRepository;
+            _actorService = actorService;
         }
         public List<MovieViewModel> GetAllMovies()
         {
@@ -151,14 +154,7 @@ namespace SEAVUS.Movie.Services.Services
 
                 foreach(var actor in movieActors)
                 {
-                    if(actor.FirstName != model.Actors.Find(x=> x.Id == actor.Id).FirstName ||
-                        actor.LastName != model.Actors.Find(x => x.Id == actor.Id).LastName ||
-                        actor.Age != model.Actors.Find(x => x.Id == actor.Id).Age)
-                    {
-                        actor.FirstName = model.Actors.Find(x => x.Id == actor.Id).FirstName;
-                        actor.LastName = model.Actors.Find(x => x.Id == actor.Id).LastName;
-                        actor.Age = model.Actors.Find(x => x.Id == actor.Id).Age;
-                    }
+                    _actorService.UpdateActors(actor, model);
                 }
 
                 movie.Title = model.MovieTitle;

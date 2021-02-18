@@ -52,6 +52,17 @@ namespace SEAVUS.Movie.Services.Services
 
             return actorsList;
         }
+        public void UpdateActors(Actor actor, MovieViewModel model)
+        {
+            if (actor.FirstName != model.Actors.Find(x => x.Id == actor.Id).FirstName ||
+                        actor.LastName != model.Actors.Find(x => x.Id == actor.Id).LastName ||
+                        actor.Age != model.Actors.Find(x => x.Id == actor.Id).Age)
+            {
+                actor.FirstName = model.Actors.Find(x => x.Id == actor.Id).FirstName;
+                actor.LastName = model.Actors.Find(x => x.Id == actor.Id).LastName;
+                actor.Age = model.Actors.Find(x => x.Id == actor.Id).Age;
+            }
+        }
 
     }
 }

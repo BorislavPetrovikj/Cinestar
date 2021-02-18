@@ -37,7 +37,6 @@ namespace SEAVUS.Movie.Services.Services
                 throw new Exception($"Actor with id: {id} is not found");
             }
         }
-
         public List<MovieCastViewModel> GetAllActors()
         {
             List<Actor> actors = _actorRepository.GetAll().ToList();
@@ -54,12 +53,5 @@ namespace SEAVUS.Movie.Services.Services
             return actorsList;
         }
 
-        public void UpdateActors(List<Actor> actors)
-        {
-                foreach (var actor in actors)
-                {
-                    _actorRepository.Update(actor);
-                }
-        }
     }
 }

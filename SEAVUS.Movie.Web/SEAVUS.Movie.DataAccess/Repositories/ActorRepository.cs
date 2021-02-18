@@ -48,7 +48,6 @@ namespace SEAVUS.Movie.DataAccess.Repositories
         {
             Actor actor = _db.Actors.SingleOrDefault(x => x.Id == entity.Id);
             if (actor != null)
-                //_db.Entry(actor).State = EntityState.Detached;
                 _db.Actors.Update(entity);
             int actorId = _db.SaveChanges();
             return actorId;

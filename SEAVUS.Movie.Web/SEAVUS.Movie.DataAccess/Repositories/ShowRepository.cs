@@ -4,7 +4,7 @@ using SEAVUS.Movie.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Text
 
 namespace SEAVUS.Movie.DataAccess.Repositories
 {
